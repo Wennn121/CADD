@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // 新增
 import logo from './图片1.svg'; // 确保路径正确
 import SubNavBar from './SubNavBar'; // 引入子菜单组件
 
 // 主导航栏
 function Navbar() {
   const [activeMenu, setActiveMenu] = useState(null); // 当前激活的菜单
+  const navigate = useNavigate(); // 新增
 
   const navItems = [
     { name: '抗体一维序列分析', subItems: ['子栏目1', '子栏目2'] },
     { name: '抗体二维序列分析', subItems: ['子栏目3', '子栏目4'] },
     { name: '抗体三维序列分析', subItems: ['子栏目5', '子栏目6'] },
-    { name: '抗体结合分析', subItems: ['子栏目7', '子栏目8'] },
+    { name: '抗体结合分析', subItems: ['能量分数评分'] },
   ];
 
   return (
@@ -20,7 +22,7 @@ function Navbar() {
         top: 0, 
         width: '100%', 
         zIndex: 1000, 
-        backgroundColor: 'rgba(151, 48, 48, 0.78)', 
+        backgroundColor: 'rgba(27, 63, 161, 0.78)', 
         height: '60px', 
         display: 'flex', 
         alignItems: 'center', 
@@ -34,11 +36,11 @@ function Navbar() {
             src={logo}
             alt="logo"
             style={{ width: '40px', marginRight: '10px', cursor: 'pointer' }} // 添加鼠标指针样式
-            onClick={() => window.location.reload()} // 点击图标刷新页面
+            onClick={() => navigate('/')} // 修改为跳转首页
           />
           <h1
             style={{ color: 'white', fontSize: '20px', margin: 0, cursor: 'pointer' }} // 添加鼠标指针样式
-            onClick={() => window.location.reload()} // 点击标题刷新页面
+            onClick={() => navigate('/')} // 修改为跳转首页
           >
             CADD抗体分析平台
           </h1>
@@ -58,6 +60,7 @@ function Navbar() {
               onMouseEnter={() => setActiveMenu(item.name)} // 鼠标进入显示子菜单
               onMouseLeave={() => setActiveMenu(null)} // 鼠标离开隐藏子菜单
             >
+
               {item.name}
               <SubNavBar
                 subItems={item.subItems}

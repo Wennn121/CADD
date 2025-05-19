@@ -1,4 +1,5 @@
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // 新增
 
 const SubSubNavBar = memo(() => {
   return (
@@ -9,44 +10,57 @@ const SubSubNavBar = memo(() => {
 });
 
 function SubNavBar({ subItems, isVisible, onMouseEnter, onMouseLeave }) {
-  if (!isVisible) return null; // 如果不可见，返回 null
+  const [hoverIndex, setHoverIndex] = useState(null);
+  const navigate = useNavigate(); // 新增
+
+  if (!isVisible) return null;
+
+  // 点击处理
+  const handleClick = (subItem) => {
+    if (subItem === '能量分数评分') {
+      navigate('/energy-score'); // 跳转到你想要的路由
+    }
+    // 你可以根据需要添加更多判断
+  };
 
   return (
     <div
       style={{
+        display: isVisible ? 'block' : 'none',
         position: 'absolute',
-        top: '100%', // 子菜单显示在主菜单下方
-        left: '50%', // 子菜单容器的左边缘在主菜单项的中间
-        transform: 'translateX(-50%)', // 将子菜单容器水平居中
-        backgroundColor: 'rgba(151, 48, 48, 0.9)',
-        padding: '10px',
-        borderRadius: '5px',
-        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-        zIndex: 1000,
-        textAlign: 'center', // 子菜单项文字居中
+        top: '100%',
+        left: 0,
+        backgroundColor: '#3b5bdb',
+        borderRadius: '10px',
+        padding: '10px 0',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+        minWidth: '120px',
+        textAlign: 'center',
+        zIndex: 1001,
       }}
-      onMouseEnter={onMouseEnter} // 鼠标进入保持显示
-      onMouseLeave={onMouseLeave} // 鼠标离开隐藏
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       {subItems.map((subItem, index) => (
         <div
           key={index}
           style={{
             color: 'white',
-            padding: '5px 10px',
+            padding: '8px 16px',
             cursor: 'pointer',
-            transition: 'background-color 0.3s',
+            whiteSpace: 'nowrap',
+            fontSize: '16px',
+            transition: 'background 0.2s',
+            background: hoverIndex === index ? '#1a237e' : 'transparent',
+            borderRadius: '6px',
+            fontWeight: hoverIndex === index ? 'bold' : 'normal',
+            boxShadow: hoverIndex === index ? '0 2px 8px rgba(0,0,0,0.12)' : 'none',
           }}
-          onMouseEnter={(e) => {
-            e.target.style.backgroundColor = 'rgba(200, 50, 50, 0.8)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.backgroundColor = 'transparent';
-          }}
-          onClick={() => console.log(`Clicked on ${subItem}`)} // 点击子菜单的处理逻辑
+          onMouseEnter={() => setHoverIndex(index)}
+          onMouseLeave={() => setHoverIndex(null)}
+          onClick={() => handleClick(subItem)} // 新增
         >
           {subItem}
-          {/* 启用每个二级菜单项的三级菜单 */}
           <SubSubNavBar />
         </div>
       ))}
