@@ -5,7 +5,7 @@ html, body {
 
 .App {
   text-align: center; /* 文本居中对齐 */
-  background-color: #892323; /* 设置背景颜色为深红色 */
+  background-color: #e1dada85; /* 设置背景颜色为深红色 */
   min-height: 100vh; /* 确保背景覆盖整个视口高度 */
 }
 

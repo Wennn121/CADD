@@ -18,9 +18,10 @@ function SubNavBar({ subItems, isVisible, onMouseEnter, onMouseLeave }) {
   // 点击处理
   const handleClick = (subItem) => {
     if (subItem === '能量分数评分') {
-      navigate('/energy-score'); // 跳转到你想要的路由
+      navigate('/energy-score'); // 跳转到能量分数评分页面
+    } else if (subItem === '多序列比对') {
+      navigate('/multi-sequence-alignment'); // 跳转到多序列比对页面
     }
-    // 你可以根据需要添加更多判断
   };
 
   return (

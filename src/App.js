@@ -4,17 +4,17 @@ import './App.css';
 import Navbar from './Navbar/Navbar.js';
 import Home from './module/Home';
 import EnergyScore from './module/EnergyScore';
+import MultiSequenceAlignment from './module/MultiSequenceAlignment.js';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <header className="App-header">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/energy-score" element={<EnergyScore />} />
-        </Routes>
-      </header>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/energy-score" element={<EnergyScore />} />
+        <Route path="/multi-sequence-alignment" element={<MultiSequenceAlignment />} />
+      </Routes>
     </div>
   );
 }
