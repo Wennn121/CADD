@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './MultiSequenceAlignment.module.css';
 
 function MultiSequenceAlignment() {
   const [file, setFile] = useState(null); // 用于存储上传的文件
@@ -46,7 +47,14 @@ function MultiSequenceAlignment() {
       if (data.error) {
         setResult('上传失败: ' + data.error);
       } else if (data.message) {
-        setResult('比对成功: ' + data.message + '\n结果:\n' + data.alignment);
+        const formatAlignmentResult = (result) => {
+          return result
+            .split('\n') // 按行分割
+            .map(line => line.trim()) // 去除每行的多余空格
+            .join('\n'); // 再拼接成字符串
+        };
+
+        setResult('比对成功: ' + data.message + '\n结果:\n' + formatAlignmentResult(data.alignment));
       } else {
         setResult('未知错误');
       }
@@ -57,49 +65,30 @@ function MultiSequenceAlignment() {
   };
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100vh' }}>
-      <h2 style={{ position: 'absolute', top: '50px', left: '20px', color: '#000', fontSize: '24px' }}>
-        多序列比对页面
-      </h2>
+    <div className={styles.container}>
+      <h2 className={styles.title}>多序列比对页面</h2>
       <textarea
+        className={styles.textarea}
         placeholder="在此输入序列（FASTA 格式）"
         value={sequence}
         onChange={handleSequenceChange}
-        style={{
-          position: 'absolute',
-          top: '120px',
-          left: '20px',
-          width: '300px',
-          height: '100px',
-          resize: 'none',
-        }}
       />
       <input
         type="file"
+        className={styles.fileInput}
         accept=".fasta,.txt"
         onChange={handleFileChange}
-        style={{ position: 'absolute', top: '230px', left: '20px' }}
       />
       <button
+        className={styles.button}
         onClick={handleSubmit}
         disabled={loading}
-        style={{
-          position: 'absolute',
-          top: '265px',
-          left: '20px',
-          padding: '10px 20px',
-          backgroundColor: '#007BFF',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: loading ? 'not-allowed' : 'pointer',
-        }}
       >
         {loading ? '比对中...' : '提交'}
       </button>
       {result && (
-        <div style={{ position: 'absolute', top: '320px', left: '20px', color: '#333', whiteSpace: 'pre-line' }}>
-          {result}
+        <div className={styles.resultBox}>
+          <pre>{result}</pre>
         </div>
       )}
     </div>
