@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 
-function MultiSequenceAlignment() { // 修改组件名称
-  const [file, setFile] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState('');
+function MultiSequenceAlignment() {
+  const [file, setFile] = useState(null); // 用于存储上传的文件
+  const [sequence, setSequence] = useState(''); // 用于存储用户输入的序列
+  const [loading, setLoading] = useState(false); // 用于显示加载状态
+  const [result, setResult] = useState(''); // 用于显示结果
 
   const handleFileChange = (event) => {
-    setFile(event.target.files[0]);
+    setFile(event.target.files[0]); // 更新文件
+  };
+
+  const handleSequenceChange = (event) => {
+    setSequence(event.target.value); // 更新用户输入的序列
   };
 
   const handleSubmit = async () => {
-    if (!file) {
-      setResult('请先选择序列文件');
+    if (!file && !sequence.trim()) {
+      setResult('请先选择序列文件或输入序列');
       return;
     }
 
@@ -19,9 +24,13 @@ function MultiSequenceAlignment() { // 修改组件名称
     setResult('');
     try {
       const formData = new FormData();
-      formData.append('sequence', file);
+      if (file) {
+        formData.append('file', file); // 如果有文件，上传文件
+      } else {
+        formData.append('sequence', sequence); // 如果有序列，上传序列
+      }
 
-      const response = await fetch('http://223.113.240.10:1116/upload-sequence', {
+      const response = await fetch('http://127.0.0.1:5000/upload', {
         method: 'POST',
         body: formData,
       });
@@ -52,18 +61,31 @@ function MultiSequenceAlignment() { // 修改组件名称
       <h2 style={{ position: 'absolute', top: '50px', left: '20px', color: '#000', fontSize: '24px' }}>
         多序列比对页面
       </h2>
+      <textarea
+        placeholder="在此输入序列（FASTA 格式）"
+        value={sequence}
+        onChange={handleSequenceChange}
+        style={{
+          position: 'absolute',
+          top: '120px',
+          left: '20px',
+          width: '300px',
+          height: '100px',
+          resize: 'none',
+        }}
+      />
       <input
         type="file"
         accept=".fasta,.txt"
         onChange={handleFileChange}
-        style={{ position: 'absolute', top: '120px', left: '20px' }}
+        style={{ position: 'absolute', top: '230px', left: '20px' }}
       />
       <button
         onClick={handleSubmit}
         disabled={loading}
         style={{
           position: 'absolute',
-          top: '180px',
+          top: '265px',
           left: '20px',
           padding: '10px 20px',
           backgroundColor: '#007BFF',
@@ -76,7 +98,7 @@ function MultiSequenceAlignment() { // 修改组件名称
         {loading ? '比对中...' : '提交'}
       </button>
       {result && (
-        <div style={{ position: 'absolute', top: '240px', left: '20px', color: '#333', whiteSpace: 'pre-line' }}>
+        <div style={{ position: 'absolute', top: '320px', left: '20px', color: '#333', whiteSpace: 'pre-line' }}>
           {result}
         </div>
       )}
@@ -84,4 +106,4 @@ function MultiSequenceAlignment() { // 修改组件名称
   );
 }
 
-export default MultiSequenceAlignment; // 修改导出名称
+export default MultiSequenceAlignment;
