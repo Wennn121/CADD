@@ -46,12 +46,12 @@
 }
 
 .resultBox {
-  font-family: monospace; /* 使用等宽字体 */
-  white-space: pre; /* 保留换行和空格 */
-  text-align: left; /* 左对齐文本 */
+  font-family: monospace; 
+  white-space: pre; 
+  text-align: left; 
   padding: 10px;
   background-color: #f8f9fa;
   border: 1px solid #ddd;
   border-radius: 4px;
-  overflow-x: auto; /* 如果内容太宽，允许横向滚动 */
+  overflow-x: auto;
 }
