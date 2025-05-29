@@ -167,3 +167,17 @@
 2025-05-29 10:36:07,114 - INFO -  * Restarting with stat
 2025-05-29 10:36:07,373 - WARNING -  * Debugger is active!
 2025-05-29 10:36:07,378 - INFO -  * Debugger PIN: 563-456-359
+2025-05-29 13:59:02,147 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-29 13:59:02,147 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 13:59:02,149 - INFO -  * Restarting with stat
+2025-05-29 13:59:02,412 - WARNING -  * Debugger is active!
+2025-05-29 13:59:02,418 - INFO -  * Debugger PIN: 563-456-359
+2025-05-29 14:26:26,003 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-29 14:26:26,003 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 14:26:26,004 - INFO -  * Restarting with stat
+2025-05-29 14:26:26,311 - WARNING -  * Debugger is active!
+2025-05-29 14:26:26,316 - INFO -  * Debugger PIN: 563-456-359
+2025-05-29 14:26:28,784 - INFO - 127.0.0.1 - - [29/May/2025 14:26:28] "POST /upload HTTP/1.1" 200 -
+2025-05-29 14:29:15,285 - INFO - 127.0.0.1 - - [29/May/2025 14:29:15] "POST /upload HTTP/1.1" 200 -
