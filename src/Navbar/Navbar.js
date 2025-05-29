@@ -9,7 +9,13 @@ function Navbar() {
   const navigate = useNavigate(); // 新增
 
   const navItems = [
-    { name: '抗体一维序列分析', subItems: ['多序列比对', '子栏目2'] },
+    { 
+      name: '抗体一维序列分析', 
+      subItems: [
+        '多序列比对', 
+        { name: 'CDR区划分', link: 'https://www.imgt.org/3Dstructure-DB/cgi/DomainGapAlign.cgi' } // 为CDR区划分添加外部链接
+      ] 
+    },
     { name: '抗体二维序列分析', subItems: ['子栏目3', '子栏目4'] },
     { name: '抗体三维序列分析', subItems: ['子栏目5', '子栏目6'] },
     { name: '抗体结合分析', subItems: ['能量分数评分'] },

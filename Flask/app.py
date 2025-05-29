@@ -98,4 +98,7 @@ def download_file(filename):
         return jsonify({'error': '文件下载失败'}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    host = '127.0.0.1'  # 本地地址
+    port = 5000         # 默认端口
+    print(f"服务已启动，请访问：http://{host}:{port}")
+    app.run(debug=True, host=host, port=port)

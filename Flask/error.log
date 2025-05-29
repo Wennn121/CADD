@@ -153,3 +153,17 @@
 2025-05-28 15:23:49,433 - INFO - 127.0.0.1 - - [28/May/2025 15:23:49] "POST /upload HTTP/1.1" 200 -
 2025-05-28 15:33:17,133 - INFO - 127.0.0.1 - - [28/May/2025 15:33:17] "POST /upload HTTP/1.1" 200 -
 2025-05-28 15:34:30,789 - INFO - 127.0.0.1 - - [28/May/2025 15:34:30] "POST /upload HTTP/1.1" 200 -
+2025-05-29 10:31:23,951 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-29 10:31:23,952 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 10:31:23,953 - INFO -  * Restarting with stat
+2025-05-29 10:31:24,214 - WARNING -  * Debugger is active!
+2025-05-29 10:31:24,220 - INFO -  * Debugger PIN: 563-456-359
+2025-05-29 10:36:02,948 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\app.py', reloading
+2025-05-29 10:36:03,317 - INFO -  * Restarting with stat
+2025-05-29 10:36:03,651 - WARNING -  * Debugger is active!
+2025-05-29 10:36:03,658 - INFO -  * Debugger PIN: 563-456-359
+2025-05-29 10:36:04,671 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\app.py', reloading
+2025-05-29 10:36:07,114 - INFO -  * Restarting with stat
+2025-05-29 10:36:07,373 - WARNING -  * Debugger is active!
+2025-05-29 10:36:07,378 - INFO -  * Debugger PIN: 563-456-359

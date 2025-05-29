@@ -61,7 +61,17 @@ function SubNavBar({ subItems, isVisible, onMouseEnter, onMouseLeave }) {
           onMouseLeave={() => setHoverIndex(null)}
           onClick={() => handleClick(subItem)} // 新增
         >
-          {subItem}
+          {typeof subItem === 'string' ? subItem : (
+            <a
+              key={subItem.name}
+              href={subItem.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: 'inherit', textDecoration: 'none' }}
+            >
+              {subItem.name}
+            </a>
+          )}
           <SubSubNavBar />
         </div>
       ))}
