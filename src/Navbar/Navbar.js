@@ -13,12 +13,23 @@ function Navbar() {
       name: '抗体一维序列分析', 
       subItems: [
         '多序列比对', 
-        { name: 'CDR区划分', link: 'https://www.imgt.org/3Dstructure-DB/cgi/DomainGapAlign.cgi' } // 为CDR区划分添加外部链接
+        { name: '蛋白信息分析', link: 'https://www.expasy.org/resources/uniprot-blast' },
+        { name: '核酸-蛋白质', link: 'https://www.expasy.org/resources/translate' },
+        { name: '蛋白质-核酸', link: 'https://www.bioinformatics.org/sms2/rev_trans.html' },
+        { name: '可变区分析', link: 'https://wwwv.imgt.org/IMGT_vguest/input' },
+        { name: '人源化', link: 'http://www.abysis.org/abysis/sequence_input/key_annotation/key_annotation.cgi' }, // 为CDR区划分添加外部链接
+        { name: '理化性质', link: 'https://web.expasy.org/cgi-bin/protparam/protparam' },
+        { name: '可变区分析', link: 'https://wwwv.imgt.org/IMGT_vguest/input' },
+         { name: 'CDR区划分', link: 'https://www.imgt.org/3Dstructure-DB/cgi/DomainGapAlign.cgi' },
+        
       ] 
     },
-    { name: '抗体二维序列分析', subItems: ['子栏目3', '子栏目4'] },
-    { name: '抗体三维序列分析', subItems: ['子栏目5', '子栏目6'] },
-    { name: '抗体结合分析', subItems: ['能量分数评分'] },
+    { name: '抗体二维序列分析', subItems: [{ name: 'IMGT标注', link: 'https://www.imgt.org/3Dstructure-DB/cgi/Collier-de-Perles.cgi' }, ] },
+    { name: '抗体三维序列分析', subItems: [{ name: 'Swiss-Model', link: 'https://swissmodel.expasy.org/interactive' },
+                                          { name: 'AlphaFold3', link: 'https://alphafoldserver.com/' },
+    ] },
+    { name: '抗体结合分析', subItems: [{ name: '结合表位分析', link: 'http://tools.iedb.org/main/bcell/' },
+      { name: 'AlphaFold3', link: 'https://alphafoldserver.com/' },] },
   ];
 
   return (
