@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // 新增
-import logo from './图片1.svg'; // 确保路径正确
+import { useNavigate } from 'react-router-dom'; 
+import logo from './图片1.svg'; 
 import SubNavBar from './SubNavBar'; // 引入子菜单组件
 
 // 主导航栏
@@ -28,7 +28,8 @@ function Navbar() {
     { name: '抗体三维序列分析', subItems: [{ name: 'Swiss-Model', link: 'https://swissmodel.expasy.org/interactive' },
                                           { name: 'AlphaFold3', link: 'https://alphafoldserver.com/' },
     ] },
-    { name: '抗体结合分析', subItems: [{ name: '结合表位分析', link: 'http://tools.iedb.org/main/bcell/' },
+    { name: '抗体结合分析', subItems: ['能量分数评分',
+      { name: '结合表位分析', link: 'http://tools.iedb.org/main/bcell/' },
       { name: 'AlphaFold3', link: 'https://alphafoldserver.com/' },] },
   ];
 
