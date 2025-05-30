@@ -1,31 +1,94 @@
 .container {
   max-width: 800px;
-  margin: 50px auto;
+  margin: 0 auto;
   padding: 20px;
-  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .title {
   text-align: center;
-  color: #007bff;
+  font-size: 24px;
+  margin-bottom: 20px;
+  margin-top: 60px; /* 根据导航栏的高度调整 */
+}
+
+.inputSection {
   margin-bottom: 20px;
 }
 
 .textarea {
   width: 100%;
-  height: 120px;
-  margin-bottom: 15px;
+  height: 100px;
+  margin-bottom: 10px;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  resize: none;
+  font-size: 14px;
 }
 
 .fileInput {
   display: block;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.settingsSection {
+  margin-bottom: 20px;
+}
+
+.subSectionTitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.penaltySettings, .advancedSettings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.penaltySetting {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.penaltySetting label {
+  font-size: 14px;
+  margin-right: 10px;
+  width: 200px; /* 固定宽度，确保对齐 */
+  text-align: right;
+}
+
+.penaltySetting input,
+.penaltySetting select {
+  width: 100px; /* 调整输入框和下拉框的宽度 */
+  padding: 5px;
+  font-size: 14px;
+}
+
+.penaltySetting select {
+  width: 200px; /* 调整下拉框的宽度 */
+}
+
+.penaltySetting input[type="checkbox"] {
+  width: auto; /* 复选框宽度自动 */
+  margin-left: 0;
+}
+
+.penaltySetting input[type="radio"] {
+  width: auto;
+  margin-left: 10px;
 }
 
 .button {
@@ -33,25 +96,23 @@
   width: 100%;
   padding: 10px;
   background-color: #007bff;
-  color: #fff;
+  color: white;
   border: none;
   border-radius: 4px;
-  cursor: pointer;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .button:disabled {
-  background-color: #6c757d;
+  background-color: #ccc;
   cursor: not-allowed;
 }
 
 .resultBox {
-  font-family: monospace; 
-  white-space: pre; 
-  text-align: left; 
+  margin-top: 20px;
   padding: 10px;
-  background-color: #f8f9fa;
-  border: 1px solid #ddd;
+  background-color: #e9ecef;
   border-radius: 4px;
-  overflow-x: auto;
+  font-family: monospace;
+  white-space: pre-wrap;
 }
