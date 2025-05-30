@@ -116,3 +116,53 @@
   font-family: monospace;
   white-space: pre-wrap;
 }
+
+.helpButton {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.helpButton:hover {
+  background-color: #0056b3;
+}
+
+.settingsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+
+.helpSection {
+  width: 300px; /* 帮助文档宽度 */
+  margin-left: 20px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #007bff; /* 浅蓝色字体 */
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+.helpTitle {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #0056b3; /* 深蓝色标题 */
+}
+
+.helpContent {
+  white-space: pre-wrap;
+  font-family: monospace;
+  font-size: 13px;
+  color: #555; /* 浅灰色内容 */
+}

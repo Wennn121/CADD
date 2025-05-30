@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; // 移除 useEffect
+import { useNavigate } from 'react-router-dom';
 import styles from './MultiSequenceAlignment.module.css';
 
 function MultiSequenceAlignment() {
+  const navigate = useNavigate();
+
   const [file, setFile] = useState(null);
   const [sequence, setSequence] = useState('');
   
@@ -98,7 +101,15 @@ function MultiSequenceAlignment() {
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Multi-Sequence Alignment</h2>
-      
+
+      {/* 跳转到帮助页面的按钮 */}
+      <button
+        className={styles.helpButton}
+        onClick={() => navigate('/help')}
+      >
+        View Help
+      </button>
+
       <div className={styles.inputSection}>
         <textarea
           className={styles.textarea}
@@ -287,6 +298,7 @@ function MultiSequenceAlignment() {
           <pre>{result}</pre>
         </div>
       )}
+
     </div>
   );
 }
