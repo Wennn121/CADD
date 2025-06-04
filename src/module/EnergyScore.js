@@ -4,54 +4,75 @@ function EnergyScore() {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState('');
+  const [downloadLinks, setDownloadLinks] = useState([]); // 用于存储下载链接
 
   const handleFileChange = (event) => {
-    setFile(event.target.files[0]);
-  };
-
-  // 假设这是后续功能模块
-  const runEnergyScore = async (filename) => {
-    setResult(prev => prev + '\n能量打分模块已运行（示例）');
+    const selectedFile = event.target.files[0];
+    if (selectedFile && !selectedFile.name.endsWith('.pdb')) {
+      setResult('仅支持上传 .pdb 文件');
+      setFile(null);
+      return;
+    }
+    setFile(selectedFile);
   };
 
   const handleSubmit = async () => {
     if (!file) {
-      setResult('请先选择pdb文件');
+      setResult('请先选择 .pdb 文件');
       return;
     }
 
     setLoading(true);
     setResult('');
+    setDownloadLinks([]); // 清空之前的下载链接
     try {
       const formData = new FormData();
-      formData.append('pdb', file);
+      formData.append('file', file);
 
-      const response = await fetch('http://223.113.240.10:1116/upload-pdb', {
+      const response = await fetch('http://127.0.0.1:5000/upload-energy-score', {
         method: 'POST',
         body: formData,
       });
 
       if (!response.ok) {
-        setResult('调用失败：HTTP ' + response.status);
+        setResult('上传失败：HTTP ' + response.status);
         setLoading(false);
         return;
       }
 
       const data = await response.json();
-
       if (data.error) {
         setResult('上传失败: ' + data.error);
-      } else if (data.message && data.filename) {
-        setResult('上传成功: ' + data.message);
-        await runEnergyScore(data.filename);
       } else {
-        setResult('未知错误');
+        setResult('上传成功: ' + data.message);
+
+        // 开始轮询检查计算状态
+        pollForResults(file.name);
       }
     } catch (error) {
-      // 网络错误或其他错误
-      setResult('调用失败: ' + error.message);
+      setResult(`上传失败: ${error.message}`);
     }
     setLoading(false);
+  };
+
+  const pollForResults = (uploadedFileName) => {
+    const interval = setInterval(async () => {
+      try {
+        const response = await fetch(`http://127.0.0.1:5000/check-energy-score-status/${uploadedFileName}`);
+        const data = await response.json();
+
+        if (data.status === 'completed') {
+          clearInterval(interval); // 停止轮询
+          setResult(data.message);
+          setDownloadLinks(data.files); // 设置下载链接
+        } else {
+          setResult(data.message); // 显示计算状态
+        }
+      } catch (error) {
+        clearInterval(interval); // 停止轮询
+        setResult(`检查状态失败: ${error.message}`);
+      }
+    }, 5000); // 每5秒检查一次
   };
 
   return (
@@ -67,24 +88,38 @@ function EnergyScore() {
       />
       <button
         onClick={handleSubmit}
-        disabled={loading}
+        disabled={loading || !file}
         style={{
           position: 'absolute',
           top: '180px',
           left: '20px',
           padding: '10px 20px',
-          backgroundColor: '#007BFF',
+          backgroundColor: loading || !file ? '#ccc' : '#007BFF',
           color: '#fff',
           border: 'none',
           borderRadius: '4px',
-          cursor: loading ? 'not-allowed' : 'pointer',
+          cursor: loading || !file ? 'not-allowed' : 'pointer',
         }}
       >
-        {loading ? '计算中...' : '提交'}
+        {loading ? '上传中...' : '提交'}
       </button>
       {result && (
         <div style={{ position: 'absolute', top: '240px', left: '20px', color: '#333', whiteSpace: 'pre-line' }}>
           {result}
+        </div>
+      )}
+      {downloadLinks.length > 0 && (
+        <div style={{ position: 'absolute', top: '300px', left: '20px', color: '#333' }}>
+          <h3>下载结果文件：</h3>
+          <ul>
+            {downloadLinks.map((link, index) => (
+              <li key={index}>
+                <a href={`http://127.0.0.1:5000${link.download_url}`} download style={{ color: '#007BFF', textDecoration: 'none' }}>
+                  {link.filename}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </div>
