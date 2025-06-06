@@ -4051,3 +4051,12 @@
 2025-06-04 16:49:10,332 - INFO - 127.0.0.1 - - [04/Jun/2025 16:49:10] "GET /check-energy-score-status/ligand_model5.pdb HTTP/1.1" 200 -
 2025-06-04 16:49:15,326 - INFO - 127.0.0.1 - - [04/Jun/2025 16:49:15] "GET /check-energy-score-status/ligand_model5.pdb HTTP/1.1" 200 -
 2025-06-04 16:49:20,325 - INFO - 127.0.0.1 - - [04/Jun/2025 16:49:20] "GET /check-energy-score-status/ligand_model5.pdb HTTP/1.1" 200 -
+2025-06-06 09:34:54,805 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-06 09:34:54,805 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-06 09:34:54,807 - INFO -  * Restarting with stat
+2025-06-06 09:34:55,170 - WARNING -  * Debugger is active!
+2025-06-06 09:34:55,176 - INFO -  * Debugger PIN: 820-121-388
+2025-06-06 09:35:31,765 - INFO - 127.0.0.1 - - [06/Jun/2025 09:35:31] "POST /upload HTTP/1.1" 200 -
+2025-06-06 09:35:43,634 - INFO - 127.0.0.1 - - [06/Jun/2025 09:35:43] "POST /upload HTTP/1.1" 200 -
+2025-06-06 15:18:02,065 - INFO - 127.0.0.1 - - [06/Jun/2025 15:18:02] "POST /upload HTTP/1.1" 200 -

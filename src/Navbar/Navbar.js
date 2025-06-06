@@ -66,7 +66,12 @@ function Navbar() {
         }
       ]
     },
-  
+   { name: '蛋白质资源分析软件', 
+    subItems: [
+    { name: '基本数据库',  
+      subItems: [{ name: 'SwissProt',  },{ name: 'Protein Family',  },{ name: 'Dail',  },{ name: 'Domain/Motif',  },] },
+    { name: '基本分析软件', 
+     subItems: [{ name: '胞内',  },{ name: '跨膜',  },{ name: '胞外',  }, { name: '胞内',  },{ name: '信号肽预测',  },]},] },
 
 
 
@@ -112,27 +117,30 @@ function Navbar() {
         },
       ]
     },
-    { name: '抗体数据库', subItems: [{ name: 'OAS数据库',  },{ name: 'uniprot数据库',  }] },
-    { name: '靶向虚拟抗体库设计及高内涵虚拟筛选', subItems: [{ name: '抗体可变区结构评估',  },{ name: '抗体关键位点参与识别抗原表位模式分析',  },{ name: '虚拟抗体库设计',  },{ name: '高内涵虚拟筛选',  },] },
-    { name: '蛋白质资源分析软件', subItems: [{ name: '基本数据库',  subItems: [{ name: 'SwissProt',  },{ name: 'Protein Family',  },{ name: 'Dail',  },{ name: 'Domain/Motif',  },] },{ name: '基本分析软件',  subItems: [{ name: '胞内',  },{ name: '跨膜',  },{ name: '胞外',  }, { name: '胞内',  },{ name: '信号肽预测',  },]},] },
-   { name: 'AIDD', subItems: [{ name: 'IMGT标注', link: 'https://www.imgt.org/3Dstructure-DB/cgi/Collier-de-Perles.cgi' }] },
-   
-    { name: '抗体二维序列分析', subItems: [{ name: 'IMGT标注', link: 'https://www.imgt.org/3Dstructure-DB/cgi/Collier-de-Perles.cgi' }] },
     
-    { name: '抗体三维序列分析', subItems: [{ name: 'Swiss-Model', link: 'https://swissmodel.expasy.org/interactive' },
-                                        { name: 'AlphaFold3', link: 'https://alphafoldserver.com/' }] },
-    { name: '抗体结合分析', subItems: ['能量分数评分',
-      { name: '结合表位分析', link: 'http://tools.iedb.org/main/bcell/' },
-      { name: 'AlphaFold3', link: 'https://alphafoldserver.com/' }] },
+  { name: '靶向虚拟抗体库设计及高内涵虚拟筛选', subItems: [{ name: '抗体可变区结构评估',  },{ name: '抗体关键位点参与识别抗原表位模式分析',  },{ name: '虚拟抗体库设计',  },{ name: '高内涵虚拟筛选',  },] },
+   { name: '抗体数据库', subItems: [{ name: 'OAS数据库',  },{ name: 'uniprot数据库',  }] },
+  //  { name: 'AIDD', subItems: [{ name: 'IMGT标注', link: 'https://www.imgt.org/3Dstructure-DB/cgi/Collier-de-Perles.cgi' }] },
+   
+  //   { name: '抗体二维序列分析', subItems: [] },
+    
+  //   { name: '抗体三维序列分析', subItems: [] },
+  //   { name: '抗体结合分析', subItems: [] },
      
-      { name: '抗体一维序列分析', subItems: [{name: '多序列比对',link: '/multi-sequence-alignment'},
+      { name: '网址链接', subItems: [{name: '多序列比对',link: '/multi-sequence-alignment'},
       { name: '蛋白信息分析', link: 'https://www.expasy.org/resources/uniprot-blast' },
             { name: '核酸-蛋白质', link: 'https://www.expasy.org/resources/translate' },
             { name: '蛋白质-核酸', link: 'https://www.bioinformatics.org/sms2/rev_trans.html' },
             { name: '人源化', link: 'http://www.abysis.org/abysis/sequence_input/key_annotation/key_annotation.cgi' },
             { name: '理化性质', link: 'https://web.expasy.org/cgi-bin/protparam/protparam' },
             { name: '可变区分析', link: 'https://wwwv.imgt.org/IMGT_vguest/input' },
-            { name: 'CDR区划分', link: 'https://www.imgt.org/3Dstructure-DB/cgi/DomainGapAlign.cgi' },] },
+            { name: 'CDR区划分', link: 'https://www.imgt.org/3Dstructure-DB/cgi/DomainGapAlign.cgi' },
+            {name:'能量分数评分',link:'/energy-score' },
+            { name: '结合表位分析', link: 'http://tools.iedb.org/main/bcell/' },
+            { name: 'AlphaFold3', link: 'https://alphafoldserver.com/' },
+            { name: 'Swiss-Model', link: 'https://swissmodel.expasy.org/interactive' },
+            { name: 'AlphaFold3', link: 'https://alphafoldserver.com/' },
+          { name: 'IMGT标注', link: 'https://www.imgt.org/3Dstructure-DB/cgi/Collier-de-Perles.cgi' }] },
   ];
 
   // 鼠标进入时清除关闭定时器
