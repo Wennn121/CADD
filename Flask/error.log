@@ -4060,3 +4060,235 @@
 2025-06-06 09:35:31,765 - INFO - 127.0.0.1 - - [06/Jun/2025 09:35:31] "POST /upload HTTP/1.1" 200 -
 2025-06-06 09:35:43,634 - INFO - 127.0.0.1 - - [06/Jun/2025 09:35:43] "POST /upload HTTP/1.1" 200 -
 2025-06-06 15:18:02,065 - INFO - 127.0.0.1 - - [06/Jun/2025 15:18:02] "POST /upload HTTP/1.1" 200 -
+2025-06-06 17:22:14,455 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\flask\\M.py', reloading
+2025-06-06 17:22:14,663 - INFO -  * Restarting with stat
+2025-06-06 17:22:15,370 - WARNING -  * Debugger is active!
+2025-06-06 17:22:15,377 - INFO -  * Debugger PIN: 820-121-388
+2025-06-06 17:22:18,409 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\flask\\M.py', reloading
+2025-06-06 17:22:19,351 - INFO -  * Restarting with stat
+2025-06-06 17:22:19,852 - WARNING -  * Debugger is active!
+2025-06-06 17:22:19,858 - INFO -  * Debugger PIN: 820-121-388
+2025-06-06 17:25:14,361 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\flask\\MultiSequenceAlignment.py', reloading
+2025-06-06 17:25:14,404 - INFO -  * Restarting with stat
+2025-06-06 17:25:14,841 - WARNING -  * Debugger is active!
+2025-06-06 17:25:14,848 - INFO -  * Debugger PIN: 820-121-388
+2025-06-06 17:25:16,862 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\flask\\MultiSequenceAlignment.py', reloading
+2025-06-06 17:25:17,055 - INFO -  * Restarting with stat
+2025-06-06 17:25:17,502 - WARNING -  * Debugger is active!
+2025-06-06 17:25:17,509 - INFO -  * Debugger PIN: 820-121-388
+2025-06-06 17:25:39,577 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\flask\\MultiSequenceAlignment.py', reloading
+2025-06-06 17:25:39,623 - INFO -  * Restarting with stat
+2025-06-06 17:25:40,058 - WARNING -  * Debugger is active!
+2025-06-06 17:25:40,064 - INFO -  * Debugger PIN: 820-121-388
+2025-06-08 09:52:08,241 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2025-06-08 09:52:08,241 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-08 09:52:08,243 - INFO -  * Restarting with stat
+2025-06-08 09:52:08,584 - WARNING -  * Debugger is active!
+2025-06-08 09:52:08,591 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 09:52:14,123 - INFO - 127.0.0.1 - - [08/Jun/2025 09:52:14] "[31m[1mPOST /upload HTTP/1.1[0m" 400 -
+2025-06-08 09:52:14,749 - INFO - 127.0.0.1 - - [08/Jun/2025 09:52:14] "[31m[1mPOST /upload HTTP/1.1[0m" 400 -
+2025-06-08 09:52:15,197 - INFO - 127.0.0.1 - - [08/Jun/2025 09:52:15] "[31m[1mPOST /upload HTTP/1.1[0m" 400 -
+2025-06-08 09:52:51,501 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2025-06-08 09:52:51,501 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-08 09:52:51,502 - INFO -  * Restarting with stat
+2025-06-08 09:52:51,739 - WARNING -  * Debugger is active!
+2025-06-08 09:52:51,745 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 09:52:53,860 - INFO - 127.0.0.1 - - [08/Jun/2025 09:52:53] "[31m[1mPOST /upload HTTP/1.1[0m" 400 -
+2025-06-08 09:59:14,774 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 09:59:14,804 - INFO -  * Restarting with stat
+2025-06-08 10:00:02,270 - INFO -  * Restarting with stat
+2025-06-08 10:00:04,579 - INFO -  * Restarting with stat
+2025-06-08 10:01:58,317 - WARNING -  * Debugger is active!
+2025-06-08 10:01:58,324 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:02:01,343 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2025-06-08 10:02:01,343 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-08 10:02:01,344 - INFO -  * Restarting with stat
+2025-06-08 10:02:01,664 - WARNING -  * Debugger is active!
+2025-06-08 10:02:01,670 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:02:08,565 - INFO - 127.0.0.1 - - [08/Jun/2025 10:02:08] "POST /upload HTTP/1.1" 200 -
+2025-06-08 10:06:34,305 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:06:34,340 - INFO -  * Restarting with stat
+2025-06-08 10:06:34,723 - WARNING -  * Debugger is active!
+2025-06-08 10:06:34,727 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:06:35,741 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:06:35,782 - INFO -  * Restarting with stat
+2025-06-08 10:06:36,156 - WARNING -  * Debugger is active!
+2025-06-08 10:06:36,162 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:06:36,635 - ERROR - ·¢Éú´íÎó: [Errno 2] No such file or directory: 'D:\\×ÀÃæ\\Energyºó¶ËÎÄ¼þ¼Ð\\antibody_db.fasta'
+2025-06-08 10:06:36,635 - INFO - 127.0.0.1 - - [08/Jun/2025 10:06:36] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2025-06-08 10:06:37,392 - ERROR - ·¢Éú´íÎó: [Errno 2] No such file or directory: 'D:\\×ÀÃæ\\Energyºó¶ËÎÄ¼þ¼Ð\\antibody_db.fasta'
+2025-06-08 10:06:37,394 - INFO - 127.0.0.1 - - [08/Jun/2025 10:06:37] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2025-06-08 10:06:37,892 - ERROR - ·¢Éú´íÎó: [Errno 2] No such file or directory: 'D:\\×ÀÃæ\\Energyºó¶ËÎÄ¼þ¼Ð\\antibody_db.fasta'
+2025-06-08 10:06:37,893 - INFO - 127.0.0.1 - - [08/Jun/2025 10:06:37] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2025-06-08 10:06:52,212 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:06:52,263 - INFO -  * Restarting with stat
+2025-06-08 10:06:52,615 - WARNING -  * Debugger is active!
+2025-06-08 10:06:52,621 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:06:55,640 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:06:55,690 - INFO -  * Restarting with stat
+2025-06-08 10:06:56,052 - WARNING -  * Debugger is active!
+2025-06-08 10:06:56,056 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:08:30,837 - ERROR - ·¢Éú´íÎó: [Errno 2] No such file or directory: 'D:\\×ÀÃæ\\Energyºó¶ËÎÄ¼þ¼Ð\\antibody_db.fasta'
+2025-06-08 10:08:30,837 - INFO - 127.0.0.1 - - [08/Jun/2025 10:08:30] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2025-06-08 10:08:58,378 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:08:58,414 - INFO -  * Restarting with stat
+2025-06-08 10:08:58,793 - WARNING -  * Debugger is active!
+2025-06-08 10:08:58,800 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:09:03,823 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:09:03,865 - INFO -  * Restarting with stat
+2025-06-08 10:09:04,254 - WARNING -  * Debugger is active!
+2025-06-08 10:09:04,259 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:09:15,296 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:09:15,332 - INFO -  * Restarting with stat
+2025-06-08 10:09:15,720 - WARNING -  * Debugger is active!
+2025-06-08 10:09:15,726 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:09:20,749 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:09:20,776 - INFO -  * Restarting with stat
+2025-06-08 10:09:21,116 - WARNING -  * Debugger is active!
+2025-06-08 10:09:21,122 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:09:28,117 - ERROR - ClustalW Ö´ÐÐÊ§°Ü: Command '['D:\\Program Files (x86)\\ClustalW2\\clustalw2.exe', '-INFILE=D:\\×ÀÃæ\\Energyºó¶ËÎÄ¼þ¼Ð\\Upload\\merged_1749348568.fasta', '-OUTFILE=results\\aligned_result_20250608100928.aln', '-OUTPUT=CLUSTAL']' returned non-zero exit status 4294967295.
+2025-06-08 10:09:28,118 - INFO - 127.0.0.1 - - [08/Jun/2025 10:09:28] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2025-06-08 10:10:56,207 - ERROR - ClustalW Ö´ÐÐÊ§°Ü: Command '['D:\\Program Files (x86)\\ClustalW2\\clustalw2.exe', '-INFILE=D:\\×ÀÃæ\\Energyºó¶ËÎÄ¼þ¼Ð\\Upload\\merged_1749348656.fasta', '-OUTFILE=results\\aligned_result_20250608101056.aln', '-OUTPUT=CLUSTAL']' returned non-zero exit status 4294967295.
+2025-06-08 10:10:56,208 - INFO - 127.0.0.1 - - [08/Jun/2025 10:10:56] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2025-06-08 10:10:56,885 - ERROR - ClustalW Ö´ÐÐÊ§°Ü: Command '['D:\\Program Files (x86)\\ClustalW2\\clustalw2.exe', '-INFILE=D:\\×ÀÃæ\\Energyºó¶ËÎÄ¼þ¼Ð\\Upload\\merged_1749348656.fasta', '-OUTFILE=results\\aligned_result_20250608101056.aln', '-OUTPUT=CLUSTAL']' returned non-zero exit status 4294967295.
+2025-06-08 10:10:56,886 - INFO - 127.0.0.1 - - [08/Jun/2025 10:10:56] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2025-06-08 10:13:21,714 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:13:21,743 - INFO -  * Restarting with stat
+2025-06-08 10:13:22,114 - WARNING -  * Debugger is active!
+2025-06-08 10:13:22,119 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:13:29,147 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:13:29,174 - INFO -  * Restarting with stat
+2025-06-08 10:13:29,514 - WARNING -  * Debugger is active!
+2025-06-08 10:13:29,519 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:13:31,533 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:13:31,573 - INFO -  * Restarting with stat
+2025-06-08 10:13:31,933 - WARNING -  * Debugger is active!
+2025-06-08 10:13:31,938 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:13:32,010 - ERROR - ClustalW Ö´ÐÐÊ§°Ü: Command '['D:\\Program Files (x86)\\ClustalW2\\clustalw2.exe', '-INFILE=D:\\×ÀÃæ\\Energyºó¶ËÎÄ¼þ¼Ð\\Upload\\merged_1749348811.fasta', '-OUTFILE=results\\aligned_result_20250608101331.aln', '-OUTPUT=CLUSTAL']' returned non-zero exit status 4294967295.
+2025-06-08 10:13:32,010 - INFO - 127.0.0.1 - - [08/Jun/2025 10:13:32] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2025-06-08 10:14:46,125 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:14:46,172 - INFO -  * Restarting with stat
+2025-06-08 10:14:46,559 - WARNING -  * Debugger is active!
+2025-06-08 10:14:46,567 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:14:48,601 - ERROR - ClustalW Ö´ÐÐÊ§°Ü: Command '['D:\\Program Files (x86)\\ClustalW2\\clustalw2.exe', '-INFILE=D:\\×ÀÃæ\\Energyºó¶ËÎÄ¼þ¼Ð\\Upload\\merged_1749348888.fasta', '-OUTFILE=results\\aligned_result_20250608101448.aln', '-OUTPUT=CLUSTAL']' returned non-zero exit status 4294967295.
+2025-06-08 10:14:48,602 - INFO - 127.0.0.1 - - [08/Jun/2025 10:14:48] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2025-06-08 10:14:49,196 - ERROR - ClustalW Ö´ÐÐÊ§°Ü: Command '['D:\\Program Files (x86)\\ClustalW2\\clustalw2.exe', '-INFILE=D:\\×ÀÃæ\\Energyºó¶ËÎÄ¼þ¼Ð\\Upload\\merged_1749348889.fasta', '-OUTFILE=results\\aligned_result_20250608101449.aln', '-OUTPUT=CLUSTAL']' returned non-zero exit status 4294967295.
+2025-06-08 10:14:49,196 - INFO - 127.0.0.1 - - [08/Jun/2025 10:14:49] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2025-06-08 10:17:23,979 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:17:24,028 - INFO -  * Restarting with stat
+2025-06-08 10:17:24,411 - WARNING -  * Debugger is active!
+2025-06-08 10:17:24,417 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:17:45,479 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:17:45,513 - INFO -  * Restarting with stat
+2025-06-08 10:17:45,866 - WARNING -  * Debugger is active!
+2025-06-08 10:17:45,872 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:17:47,886 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:17:47,923 - INFO -  * Restarting with stat
+2025-06-08 10:17:48,358 - WARNING -  * Debugger is active!
+2025-06-08 10:17:48,364 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:17:53,890 - ERROR - ClustalW Ö´ÐÐÊ§°Ü: Command '['D:\\Program Files (x86)\\ClustalW2\\clustalw2.exe', '-INFILE=D:\\Antibody\\MultiSequenceAlignment\\Upload\\merged_1749349073.fasta', '-OUTFILE=results\\aligned_result_20250608101753.aln', '-OUTPUT=CLUSTAL']' returned non-zero exit status 4294967295.
+2025-06-08 10:17:53,890 - INFO - 127.0.0.1 - - [08/Jun/2025 10:17:53] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2025-06-08 10:17:54,401 - ERROR - ClustalW Ö´ÐÐÊ§°Ü: Command '['D:\\Program Files (x86)\\ClustalW2\\clustalw2.exe', '-INFILE=D:\\Antibody\\MultiSequenceAlignment\\Upload\\merged_1749349074.fasta', '-OUTFILE=results\\aligned_result_20250608101754.aln', '-OUTPUT=CLUSTAL']' returned non-zero exit status 4294967295.
+2025-06-08 10:17:54,402 - INFO - 127.0.0.1 - - [08/Jun/2025 10:17:54] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2025-06-08 10:19:07,584 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:19:07,629 - INFO -  * Restarting with stat
+2025-06-08 10:19:08,015 - WARNING -  * Debugger is active!
+2025-06-08 10:19:08,021 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:19:10,036 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:19:10,069 - INFO -  * Restarting with stat
+2025-06-08 10:23:18,665 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5005
+2025-06-08 10:23:18,665 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-08 10:23:18,667 - INFO -  * Restarting with stat
+2025-06-08 10:23:18,987 - WARNING -  * Debugger is active!
+2025-06-08 10:23:18,991 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:23:22,134 - ERROR - ·¢Éú´íÎó: [Errno 13] Permission denied: 'D:\\Antibody\\MultiSequenceAlignment\\Data'
+Traceback (most recent call last):
+  File "D:\×ÀÃæ\React\my-app\Flask\MultiSequenceAlignment.py", line 71, in upload_file
+    with open(antibody_db_path, "r") as fin_db:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'D:\\Antibody\\MultiSequenceAlignment\\Data'
+2025-06-08 10:23:22,136 - INFO - 127.0.0.1 - - [08/Jun/2025 10:23:22] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2025-06-08 10:23:22,907 - ERROR - ·¢Éú´íÎó: [Errno 13] Permission denied: 'D:\\Antibody\\MultiSequenceAlignment\\Data'
+Traceback (most recent call last):
+  File "D:\×ÀÃæ\React\my-app\Flask\MultiSequenceAlignment.py", line 71, in upload_file
+    with open(antibody_db_path, "r") as fin_db:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'D:\\Antibody\\MultiSequenceAlignment\\Data'
+2025-06-08 10:23:22,907 - INFO - 127.0.0.1 - - [08/Jun/2025 10:23:22] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2025-06-08 10:23:36,398 - INFO - 127.0.0.1 - - [08/Jun/2025 10:23:36] "GET / HTTP/1.1" 200 -
+2025-06-08 10:23:36,659 - INFO - 127.0.0.1 - - [08/Jun/2025 10:23:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-08 10:25:26,302 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:25:26,336 - INFO -  * Restarting with stat
+2025-06-08 10:25:50,407 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5005
+2025-06-08 10:25:50,407 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-08 10:25:50,408 - INFO -  * Restarting with stat
+2025-06-08 10:25:50,729 - WARNING -  * Debugger is active!
+2025-06-08 10:25:50,735 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:25:53,013 - ERROR - ClustalW Ö´ÐÐÊ§°Ü: Command '['D:\\Program Files (x86)\\ClustalW2\\clustalw2.exe', '-INFILE=D:\\Antibody\\MultiSequenceAlignment\\Upload\\merged_1749349552.fasta', '-OUTFILE=D:\\Antibody\\MultiSequenceAlignment\\Result\\aligned_result_20250608102552.aln', '-OUTPUT=CLUSTAL']' returned non-zero exit status 4294967295.
+2025-06-08 10:25:53,013 - INFO - 127.0.0.1 - - [08/Jun/2025 10:25:53] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2025-06-08 10:28:20,120 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:28:20,175 - INFO -  * Restarting with stat
+2025-06-08 10:28:20,759 - WARNING -  * Debugger is active!
+2025-06-08 10:28:20,766 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:28:24,362 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5005
+2025-06-08 10:28:24,363 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-08 10:28:24,363 - INFO -  * Restarting with stat
+2025-06-08 10:28:24,729 - WARNING -  * Debugger is active!
+2025-06-08 10:28:24,735 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:28:28,699 - ERROR - ClustalW Ö´ÐÐÊ§°Ü: Command '['D:\\Program Files (x86)\\ClustalW2\\clustalw2.exe', '-INFILE=D:\\Antibody\\MultiSequenceAlignment\\Upload\\merged_1749349708.fasta', '-OUTFILE=D:\\Antibody\\MultiSequenceAlignment\\Result\\aligned_result_20250608102828.aln', '-OUTPUT=CLUSTAL']' returned non-zero exit status 4294967295.
+2025-06-08 10:28:28,700 - INFO - 127.0.0.1 - - [08/Jun/2025 10:28:28] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2025-06-08 10:32:28,406 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:32:28,470 - INFO -  * Restarting with stat
+2025-06-08 10:32:28,901 - WARNING -  * Debugger is active!
+2025-06-08 10:32:28,907 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:32:33,249 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5005
+2025-06-08 10:32:33,249 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-08 10:32:33,251 - INFO -  * Restarting with stat
+2025-06-08 10:32:33,601 - WARNING -  * Debugger is active!
+2025-06-08 10:32:33,608 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:32:47,625 - INFO - 127.0.0.1 - - [08/Jun/2025 10:32:47] "POST /upload HTTP/1.1" 200 -
+2025-06-08 10:36:59,318 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\app.py', reloading
+2025-06-08 10:36:59,365 - INFO -  * Restarting with stat
+2025-06-08 10:36:59,789 - WARNING -  * Debugger is active!
+2025-06-08 10:36:59,796 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:37:02,895 - INFO - 127.0.0.1 - - [08/Jun/2025 10:37:02] "POST /upload HTTP/1.1" 200 -
+2025-06-08 10:38:38,064 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\app.py', reloading
+2025-06-08 10:38:38,137 - INFO -  * Restarting with stat
+2025-06-08 10:38:38,619 - WARNING -  * Debugger is active!
+2025-06-08 10:38:38,625 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:38:41,643 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:38:41,690 - INFO -  * Restarting with stat
+2025-06-08 10:38:42,113 - WARNING -  * Debugger is active!
+2025-06-08 10:38:42,118 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:39:04,189 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:39:04,235 - INFO -  * Restarting with stat
+2025-06-08 10:39:04,665 - WARNING -  * Debugger is active!
+2025-06-08 10:39:04,671 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:39:26,981 - INFO - 127.0.0.1 - - [08/Jun/2025 10:39:26] "POST /upload HTTP/1.1" 200 -
+2025-06-08 10:39:29,235 - INFO - 127.0.0.1 - - [08/Jun/2025 10:39:29] "POST /upload HTTP/1.1" 200 -
+2025-06-08 10:39:39,772 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:39:39,815 - INFO -  * Restarting with stat
+2025-06-08 10:39:40,198 - WARNING -  * Debugger is active!
+2025-06-08 10:39:40,203 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:39:42,683 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5005
+2025-06-08 10:39:42,683 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-08 10:39:42,686 - INFO -  * Restarting with stat
+2025-06-08 10:39:43,047 - WARNING -  * Debugger is active!
+2025-06-08 10:39:43,053 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:39:46,678 - INFO - 127.0.0.1 - - [08/Jun/2025 10:39:46] "POST /upload HTTP/1.1" 200 -
+2025-06-08 10:40:42,224 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\MultiSequenceAlignment.py', reloading
+2025-06-08 10:40:42,286 - INFO -  * Restarting with stat
+2025-06-08 10:40:42,751 - WARNING -  * Debugger is active!
+2025-06-08 10:40:42,758 - INFO -  * Debugger PIN: 934-078-182
+2025-06-08 10:40:45,906 - INFO - 127.0.0.1 - - [08/Jun/2025 10:40:45] "POST /upload HTTP/1.1" 200 -
+2025-06-08 10:40:46,909 - INFO - 127.0.0.1 - - [08/Jun/2025 10:40:46] "POST /upload HTTP/1.1" 200 -
+2025-06-08 10:43:00,385 - INFO - 127.0.0.1 - - [08/Jun/2025 10:43:00] "POST /upload HTTP/1.1" 200 -
+2025-06-08 10:43:15,302 - INFO - 127.0.0.1 - - [08/Jun/2025 10:43:15] "POST /upload HTTP/1.1" 200 -

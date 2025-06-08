@@ -140,7 +140,11 @@ function Navbar() {
             { name: 'AlphaFold3', link: 'https://alphafoldserver.com/' },
             { name: 'Swiss-Model', link: 'https://swissmodel.expasy.org/interactive' },
             { name: 'AlphaFold3', link: 'https://alphafoldserver.com/' },
-          { name: 'IMGT标注', link: 'https://www.imgt.org/3Dstructure-DB/cgi/Collier-de-Perles.cgi' }] },
+          { name: 'IMGT标注', link: 'https://www.imgt.org/3Dstructure-DB/cgi/Collier-de-Perles.cgi' },
+        { name: 'V-Quest', link: 'https://www.imgt.org/IMGT_vquest/input' },
+     { name: 'DomainGapAlign', link: 'https://www.imgt.org/3Dstructure-DB/cgi/DomainGapAlign.cgi' },
+     { name: 'Collier de Perles', link: 'https://www.imgt.org/3Dstructure-DB/cgi/Collier-de-Perles.cgi' },
+      ] },
   ];
 
   // 鼠标进入时清除关闭定时器
