@@ -103,12 +103,12 @@ function MultiSequenceAlignment() {
       <h2 className={styles.title}>Multi-Sequence Alignment</h2>
 
       {/* 跳转到帮助页面的按钮 */}
-      <button
+      {/* <button
         className={styles.helpButton}
         onClick={() => navigate('/help')}
       >
         View Help
-      </button>
+      </button> */}
 
       <div className={styles.inputSection}>
         <textarea

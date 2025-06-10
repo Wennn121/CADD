@@ -97,3 +97,18 @@
     transform: translateY(0);
   }
 }
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(100px); /* 初始位置 */
+    opacity: 0; /* 初始透明度 */
+  }
+  100% {
+    transform: translateY(0); /* 最终位置 */
+    opacity: 1; /* 最终透明度 */
+  }
+}
+
+.slide-effect {
+  animation: slideIn 1s ease-out; /* 滑动动画 */
+}

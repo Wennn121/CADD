@@ -1,4 +1,5 @@
 import React from 'react';
+import { scroller } from 'react-scroll'; // 引入 scroller
 
 function Home() {
   return (
@@ -41,10 +42,10 @@ function Home() {
             textShadow: '1px 1px 8px rgba(0, 0, 0, 0.1)', // 文字阴影
           }}
         >
-          提交您的抗体序列进行比对，开始您的设计工作
+          提交您的抗体序列，开始全流程设计。
         </p>
 
-        {/* 修改后的向下滑动按钮 */}
+        {/* 使用 react-scroll 实现平滑滚动 */}
         <p
           style={{
             fontSize: '18px',
@@ -60,11 +61,12 @@ function Home() {
             textDecoration: 'none',
           }}
           onClick={() => {
-            const targetElement = document.querySelector('.target-section'); // 获取目标元素
-            const offsetTop = targetElement.offsetTop - 80; // 减去导航栏高度（假设导航栏高度为 80px）
-            window.scrollTo({
-              top: offsetTop,
-              behavior: 'smooth',
+            scroller.scrollTo('target-section', {
+              duration: 1000, // 滑动时间（毫秒）
+              delay: 1000
+              , // 延迟时间
+              smooth: 'easeInOutQuart', // 平滑效果
+              offset: -80, // 偏移量，避免遮挡标题
             });
           }}
         >
@@ -98,7 +100,9 @@ function Home() {
             maxWidth: '1200px',
           }}
         >
-          我们的目标是通过提供先进的抗体设计平台，推动生物制药和免疫学研究的发展。我们致力于为全球科研人员、制药公司和医学研究机构提供创新的工具， 帮助他们高效、精确地设计和优化抗体，以应对复杂的疾病挑战。
+          我们的目标是通过提供先进的抗体设计平台，推动生物制药和免疫学研究的发展。我们致力于为全球科研人员、
+          制药公司和医学研究机构提供创新的工具，
+          帮助他们高效、精确地设计和优化抗体，以应对复杂的疾病挑战。
           在这个平台上，用户可以提交自己的抗体序列，进行高效的序列比对和分析，获得最佳设计方案，
           并优化抗体的效能、稳定性和特异性。
           
@@ -107,7 +111,8 @@ function Home() {
           通过集成先进的计算生物学技术和人工智能算法，我们不仅可以提高抗体的设计速度，还能大幅提升其精准度，
           推动抗体药物的研发和临床应用。
         我们平台的设计原则是智能、高效、开放和可扩展，为科研人员提供直观易用的界面、
-          精准的计算结果，并支持多种研究需求的灵活定制。我们不断更新和优化平台功能，确保用户能够在最新的技术背景下进行科学探索与实验验证。
+          精准的计算结果，并支持多种研究需求的灵活定制。我们不断更新和优化平台功能，
+          确保用户能够在最新的技术背景下进行科学探索与实验验证。
         </p>
         </p>
                   <img 
