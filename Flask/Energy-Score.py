@@ -38,30 +38,36 @@ already_downloaded = set(os.listdir(ENERGY_SCORE_FOLDER))
 
 # ---------------- 文件同步线程 ----------------
 def sync_from_remote():
+    first_run = True
     while True:
         try:
-            print("[SYNC] 正在连接暮光云...")
+            print("[SYNC] 正在连接曙光云服务器...")
             key = paramiko.RSAKey.from_private_key_file(PRIVATE_KEY_PATH)
             transport = paramiko.Transport((REMOTE_HOST, REMOTE_PORT))
             transport.connect(username=USERNAME, pkey=key)
+            print("[SYNC] ✅ 成功连接到曙光云服务器")
+
             sftp = paramiko.SFTPClient.from_transport(transport)
             remote_files = sftp.listdir(REMOTE_RESULT_DIR)
-            print(f"[SYNC] 📆 远程文件数量: {len(remote_files)}")
+            print(f"[SYNC] 📦 远程文件数量: {len(remote_files)}")
 
             for file in remote_files:
                 if file not in already_downloaded:
                     remote_path = f"{REMOTE_RESULT_DIR.rstrip('/')}/{file}"
                     local_path = os.path.join(ENERGY_SCORE_FOLDER, file)
+                    print(f"[SYNC] 正在下载文件: {remote_path} 到本地 {local_path}")
                     sftp.get(remote_path, local_path)
                     already_downloaded.add(file)
-                    print(f"[SYNC] ✔️ 下载成功: {file}")
+                    print(f"[SYNC] ✅ 下载完成: {file}")
 
             sftp.close()
             transport.close()
         except Exception as e:
             print(f"[SYNC ERROR] 错误: {str(e)}")
+            logging.error(f"[SYNC ERROR] 错误: {str(e)}")
 
         time.sleep(SYNC_INTERVAL)
+
 
 # ---------------- 路由 ----------------
 @app.route('/')
@@ -90,7 +96,7 @@ def upload_energy_score_file():
 
         remote_path = f"{REMOTE_UPLOAD_DIR.rstrip('/')}/{filename}"
         sftp.put(file_path, remote_path)
-        print(f"[UPLOAD] 上传到暮光云: {remote_path}")
+        print(f"[UPLOAD] 上传到曙光云: {remote_path}")
 
         sftp.close()
         transport.close()
