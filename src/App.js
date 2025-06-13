@@ -10,6 +10,7 @@ import HelpPage from './module/Clustalw-HelpPage.js';
 import Login from './contrl/Login'; // 引入 Login 组件
 import Register from './contrl/Register'; // 引入 Register 组件
 import Dashboard from './contrl/Dashboard'; // 引入 Dashboard 组件
+import AdminDashboard from './contrl/AdminDashboard';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -47,6 +48,7 @@ function App() {
             <Route path="/login" element={<Login />} /> {/* 添加 Login 路由 */}
             <Route path="/register" element={<Register />} /> {/* 添加 Register 路由 */}
             <Route path="/dashboard" element={<Dashboard />} /> {/* 添加 Dashboard 路由 */}
+            <Route path="/admin-dashboard" element={<AdminDashboard />} />
           </Routes>
         
       </ErrorBoundary>

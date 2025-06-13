@@ -1,20 +1,45 @@
 import React, { useState } from 'react';
-import { useAuth } from './AuthContext'; // 引入 useAuth hook
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from './AuthContext';
 
 function Login() {
+  const { login } = useAuth();
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { login } = useAuth(); // 使用 useAuth hook 获取 login 方法
-  const navigate = useNavigate();
+  const [isAdmin, setIsAdmin] = useState(false); // 是否管理员登录模式
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Login submitted', username, password);
 
-    // 登录成功
-    login(); // 调用 login 方法更新登录状态
-    navigate('/dashboard'); // 跳转到 dashboard 页面
+    try {
+      // 根据 isAdmin 的值发送请求
+      const response = await fetch('http://127.0.0.1:5008/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password, isAdmin }), // 发送 isAdmin 标识
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert('登录成功');
+        login(); // 更新登录状态
+        // 根据 isAdmin 的值跳转到不同页面
+        if (isAdmin) {
+          navigate('/admin-dashboard'); // 跳转到管理员界面
+        } else {
+          navigate('/dashboard'); // 跳转到普通用户界面
+        }
+      } else {
+        alert(data.error || '登录失败');
+      }
+    } catch (error) {
+      console.error('登录请求失败:', error);
+      alert('登录请求失败，请稍后再试');
+    }
   };
 
   return (
@@ -36,7 +61,7 @@ function Login() {
           textAlign: 'center',
           color: '#1b3fa1',
           marginBottom: '20px',
-        }}>登录</h2>
+        }}>{isAdmin ? '管理员登录' : '登录'}</h2>
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
           <label style={{ fontWeight: 'bold', color: '#333' }}>用户名:</label>
           <input
@@ -80,7 +105,7 @@ function Login() {
             onMouseOver={(e) => e.target.style.backgroundColor = '#16327d'}
             onMouseOut={(e) => e.target.style.backgroundColor = '#1b3fa1'}
           >
-            登录
+            {isAdmin ? '管理员登录' : '登录'}
           </button>
         </form>
         <p style={{
@@ -98,6 +123,26 @@ function Login() {
           >
             注册
           </span>
+        </p>
+        <p style={{
+          textAlign: 'center',
+          marginTop: '10px',
+        }}>
+          <button
+            style={{
+              background: 'none',
+              border: 'none',
+              color: '#1b3fa1',
+              cursor: 'pointer',
+              textDecoration: 'underline',
+              fontSize: '15px',
+              padding: 0,
+            }}
+            onClick={() => setIsAdmin(!isAdmin)} // 切换管理员登录模式
+            type="button"
+          >
+            {isAdmin ? '用户登录' : '管理员登录'}
+          </button>
         </p>
       </div>
     </div>

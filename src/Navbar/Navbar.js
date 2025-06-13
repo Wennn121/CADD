@@ -7,9 +7,10 @@ import logo from './图片1.svg'; // 根据实际路径导入 logo 图片
 function Navbar() {
   const [activeMenu, setActiveMenu] = useState(null);
   const navigate = useNavigate();
-  const { isLoggedIn } = useAuth(); // 获取登录状态
+  const { isLoggedIn, logout } = useAuth(); // 获取登录状态和登出方法
   const timerRef = useRef();
 
+  // -------------------- 导航菜单项 --------------------
   const navItems = [
     { 
       name: '基础信息分析', 
@@ -71,7 +72,6 @@ function Navbar() {
         }
       ]
     },
-  
   
     { name: '蛋白质资源分析软件', 
     subItems: [
@@ -152,43 +152,65 @@ function Navbar() {
     subItems: [{ name: 'OAS数据库',  },
       { name: 'uniprot数据库',  }] },
    { name: '网址链接', 
-    subItems: [{name: '多序列比对',link: '/multi-sequence-alignment'}, 
+    subItems: [
+      {name: '多序列比对',link: '/multi-sequence-alignment'}, 
+      {name:'能量分数评分',link:'/energy-score' },
       { name: '蛋白信息分析', link: 'https://www.expasy.org/resources/uniprot-blast' }, 
       { name: '核酸-蛋白质', link: 'https://www.expasy.org/resources/translate' }, 
       { name: '蛋白质-核酸', link: 'https://www.bioinformatics.org/sms2/rev_trans.html' },
-      { name: '人源化', link: 'http://www.abysis.org/abysis/sequence_input/key_annotation/key_annotation.cgi' }, { name: '理化性质', link: 'https://web.expasy.org/cgi-bin/protparam/protparam' }, { name: '可变区分析', link: 'https://wwwv.imgt.org/IMGT_vguest/input' }, { name: 'CDR区划分', link: 'https://www.imgt.org/3Dstructure-DB/cgi/DomainGapAlign.cgi' }, {name:'能量分数评分',link:'/energy-score' }, { name: '结合表位分析', link: 'http://tools.iedb.org/main/bcell/' }, { name: 'AlphaFold3', link: 'https://alphafoldserver.com/' }, { name: 'Swiss-Model', link: 'https://swissmodel.expasy.org/interactive' }, { name: 'IMGT标注', link: 'https://www.imgt.org/3Dstructure-DB/cgi/Collier-de-Perles.cgi' }] },
+      { name: '人源化', link: 'http://www.abysis.org/abysis/sequence_input/key_annotation/key_annotation.cgi' },
+      { name: '理化性质', link: 'https://web.expasy.org/cgi-bin/protparam/protparam' }, // 修复单引号
+      { name: '可变区分析', link: 'https://wwwv.imgt.org/IMGT_vguest/input' },
+      { name: 'CDR区划分', link: 'https://www.imgt.org/3Dstructure-DB/cgi/DomainGapAlign.cgi' },
+      { name: '结合表位分析', link: 'http://tools.iedb.org/main/bcell/' },
+      { name: 'AlphaFold3', link: 'https://alphafoldserver.com/' },
+      { name: 'Swiss-Model', link: 'https://swissmodel.expasy.org/interactive' },
+      { name: 'IMGT标注', link: 'https://www.imgt.org/3Dstructure-DB/cgi/Collier-de-Perles.cgi' }] },
 
   ];
 
-  // 点击菜单项时进行路由判断
+  // -------------------- 菜单点击处理 --------------------
   const handleMenuClick = (item, event) => {
+    console.log('点击的菜单项:', item);  // 查看菜单项内容
+
+    event.preventDefault(); // 阻止默认行为
+
+    // 如果用户没有登录，跳转到登录页面
     if (!isLoggedIn) {
-      // 阻止默认行为，防止跳转
-      event.preventDefault();
-      // 未登录时跳转到登录页面
-      navigate('/login');
-    } else if (item.link) {
-      // 已登录且链接存在时跳转到指定链接
-      navigate(item.link);
+      navigate('/login'); // 跳转到登录页面
+      return; // 结束函数，防止继续执行跳转操作
+    }
+
+    // 如果该菜单项有链接，就跳转到该链接
+    if (item.link) {
+      console.log('跳转到:', item.link);  // 打印跳转链接
+
+      // 如果是外部链接
+      if (item.link.startsWith('http')) {
+        console.log('外部链接，跳转到:', item.link); // 调试信息
+        window.location.href = item.link; // 外部链接直接跳转
+      } else {
+        console.log('内部链接，跳转到:', item.link); // 调试信息
+        navigate(item.link); // 内部链接使用 react-router 跳转
+      }
     } else {
-      // 已登录但没有链接时执行其他操作
-      console.log(item.name);
+      console.log('没有有效的链接');  // 如果没有链接，输出调试信息
     }
   };
 
-  // 鼠标进入时清除关闭定时器
+  // -------------------- 鼠标事件处理 --------------------
   const handleMenuEnter = (name) => {
     clearTimeout(timerRef.current);
     setActiveMenu(name);
   };
 
-  // 鼠标离开时延迟关闭
   const handleMenuLeave = () => {
     timerRef.current = setTimeout(() => {
       setActiveMenu(null);
     }, 200); // 200ms延迟
   };
 
+  // -------------------- 渲染导航栏 --------------------
   return (
     <>
       <div style={{ 
@@ -205,6 +227,7 @@ function Navbar() {
         padding: '0 20px',
         borderRadius: '0 0 10px 10px', // 上方直角，下方圆角
       }}>
+        {/* Logo 和标题 */}
         <div style={{ display: 'flex', alignItems: 'center', marginRight: '20px' }}>
           <img
             src={logo}
@@ -220,6 +243,7 @@ function Navbar() {
           </h1>
         </div>
 
+        {/* 导航菜单 */}
         <div style={{ display: 'flex', gap: '20px', position: 'relative' }}>
           {navItems.map((item) => (
             <div
@@ -241,41 +265,66 @@ function Navbar() {
                 isVisible={activeMenu === item.name}
                 onMouseEnter={() => handleMenuEnter(item.name)}
                 onMouseLeave={handleMenuLeave}
+                onClick={(subItem, event) => handleMenuClick(subItem, event)} // 确保传递子项
               />
             </div>
           ))}
         </div>
 
-        {/* 添加登录和注册按钮 */}
-        <div style={{ display: 'flex', gap: '10px' }}>
-          <button
-            style={{
-              backgroundColor: 'white',
-              color: 'rgba(27, 63, 161, 0.78)',
-              border: 'none',
-              borderRadius: '5px',
-              padding: '5px 10px',
-              cursor: 'pointer',
-              fontWeight: 'bold',
-            }}
-            onClick={() => navigate('/login')}
-          >
-            登录
-          </button>
-          <button
-            style={{
-              backgroundColor: 'white',
-              color: 'rgba(27, 63, 161, 0.78)',
-              border: 'none',
-              borderRadius: '5px',
-              padding: '5px 10px',
-              cursor: 'pointer',
-              fontWeight: 'bold',
-            }}
-            onClick={() => navigate('/register')}
-          >
-            注册
-          </button>
+        {/* 用户信息或登录/注册按钮 */}
+        <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+          {isLoggedIn ? (
+            <>
+              <div style={{ color: 'white', fontWeight: 'bold', cursor: 'pointer' }}>
+                用户名: x9y111
+              </div>
+              <button
+                style={{
+                  backgroundColor: 'white',
+                  color: 'rgba(27, 63, 161, 0.78)',
+                  border: 'none',
+                  borderRadius: '5px',
+                  padding: '5px 10px',
+                  cursor: 'pointer',
+                  fontWeight: 'bold',
+                }}
+                onClick={logout} // 调用登出方法
+              >
+                退出登录
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                style={{
+                  backgroundColor: 'white',
+                  color: 'rgba(27, 63, 161, 0.78)',
+                  border: 'none',
+                  borderRadius: '5px',
+                  padding: '5px 10px',
+                  cursor: 'pointer',
+                  fontWeight: 'bold',
+                }}
+                onClick={() => navigate('/login')}
+              >
+                登录
+              </button>
+              <button
+                style={{
+                  backgroundColor: 'white',
+                  color: 'rgba(27, 63, 161, 0.78)',
+                  border: 'none',
+                  borderRadius: '5px',
+                  padding: '5px 10px',
+                  cursor: 'pointer',
+                  fontWeight: 'bold',
+                }}
+                onClick={() => navigate('/register')}
+              >
+                注册
+              </button>
+            </>
+          )}
         </div>
       </div>
     </>

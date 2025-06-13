@@ -4,14 +4,36 @@ import { useNavigate } from 'react-router-dom';
 function Register() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(''); // 错误提示
+  const [success, setSuccess] = useState(''); // 成功提示
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Register submitted', username, password);
+    setError('');
+    setSuccess('');
 
-    // 注册成功
-    navigate('/login'); // 注册成功后跳转到登录页面
+    try {
+      const response = await fetch('http://127.0.0.1:5008/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSuccess('注册成功！即将跳转到登录页面...');
+        setTimeout(() => navigate('/login'), 2000); // 2秒后跳转到登录页面
+      } else {
+        setError(data.error || '注册失败');
+      }
+    } catch (error) {
+      console.error('注册请求失败:', error);
+      setError('注册请求失败，请稍后再试');
+    }
   };
 
   return (
@@ -35,7 +57,7 @@ function Register() {
           marginBottom: '20px',
         }}>注册</h2>
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-          <label style={{ fontWeight: 'bold', color: '#333' }}>用户名:</label>
+          <label style={{ fontWeight: 'bold', color: '#333' }}>账户名/手机号/邮箱:</label>
           <input
             type="text"
             value={username}
@@ -61,6 +83,34 @@ function Register() {
               fontSize: '16px',
             }}
           />
+          {/* 错误提示 */}
+          {error && (
+            <div style={{
+              color: 'red',
+              background: '#fff0f0',
+              border: '1px solid #ffcccc',
+              borderRadius: '5px',
+              padding: '8px 12px',
+              marginBottom: '10px',
+              textAlign: 'center'
+            }}>
+              {error}
+            </div>
+          )}
+          {/* 成功提示 */}
+          {success && (
+            <div style={{
+              color: 'green',
+              background: '#f0fff0',
+              border: '1px solid #ccffcc',
+              borderRadius: '5px',
+              padding: '8px 12px',
+              marginBottom: '10px',
+              textAlign: 'center'
+            }}>
+              {success}
+            </div>
+          )}
           <button
             type="submit"
             style={{

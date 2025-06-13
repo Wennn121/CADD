@@ -1,42 +1,33 @@
-import React, { createContext, useState, useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { createContext, useContext, useState, useEffect } from 'react';
 
-export const AuthContext = createContext();
+const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('token') ? true : false);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      localStorage.setItem('token', 'loggedIn');
-    } else {
-      localStorage.removeItem('token');
-    }
-  }, [isLoggedIn]);
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    // 从 localStorage 初始化登录状态
+    return localStorage.getItem('isLoggedIn') === 'true';
+  });
 
   const login = () => {
     setIsLoggedIn(true);
-    navigate('/dashboard');
+    localStorage.setItem('isLoggedIn', 'true'); // 持久化登录状态
   };
 
   const logout = () => {
     setIsLoggedIn(false);
+    localStorage.removeItem('isLoggedIn'); // 清除登录状态
   };
 
-  const value = {
-    isLoggedIn,
-    login,
-    logout
-  };
+  useEffect(() => {
+    // 同步状态到 localStorage（可选，确保状态一致性）
+    localStorage.setItem('isLoggedIn', isLoggedIn ? 'true' : 'false');
+  }, [isLoggedIn]);
 
   return (
-    <AuthContext.Provider value={value}>
+    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
+export const useAuth = () => useContext(AuthContext);

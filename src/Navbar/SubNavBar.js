@@ -1,5 +1,6 @@
-import React, { memo, useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom'; // 新增
+import React, { memo, useState, useRef, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext, useAuth } from '../contrl/AuthContext'; // AuthContext 提供登录状态
 
 const SubSubNavBar = memo(() => {
   return (
@@ -12,6 +13,8 @@ const SubSubNavBar = memo(() => {
 function SubNavBar({ subItems, isVisible, onMouseEnter, onMouseLeave, style }) {
   const [hoverIndex, setHoverIndex] = useState(null);
   const timerRef = useRef();
+  const navigate = useNavigate();
+  const { isLoggedIn } = useAuth(); // 使用 useAuth 获取登录状态
 
   if (!isVisible) return null;
 
@@ -27,6 +30,33 @@ function SubNavBar({ subItems, isVisible, onMouseEnter, onMouseLeave, style }) {
   const handleMouseEnter = () => {
     clearTimeout(timerRef.current);
     if (onMouseEnter) onMouseEnter();
+  };
+
+  // 处理菜单点击
+  const handleMenuClick = (subItem, event) => {
+    event.stopPropagation(); // 阻止事件冒泡
+    console.log('Menu item clicked:', subItem); // 调试信息
+
+    // 检查用户是否登录
+    if (!isLoggedIn) {
+      console.log('用户未登录，跳转到登录页面');
+      navigate('/login'); // 跳转到登录页面
+      return; // 结束函数，防止继续执行跳转操作
+    }
+
+    if (subItem.link) {
+      if (subItem.link.startsWith('http')) {
+        // 外部链接
+        console.log('跳转到外部链接:', subItem.link);
+        window.location.href = subItem.link;
+      } else {
+        // 内部链接
+        console.log('跳转到内部链接:', subItem.link);
+        navigate(subItem.link);
+      }
+    } else {
+      console.log('没有有效的链接');
+    }
   };
 
   return (
@@ -73,17 +103,15 @@ function SubNavBar({ subItems, isVisible, onMouseEnter, onMouseLeave, style }) {
             onMouseLeave={() => setHoverIndex(null)}
           >
             {typeof subItem === 'string' ? subItem : (
-              <a
+              <div
                 key={subItem.name}
-                href={subItem.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: 'inherit', textDecoration: 'none' }}
+                style={{ color: 'inherit', textDecoration: 'none', cursor: 'pointer' }}
+                onClick={(event) => handleMenuClick(subItem, event)} // 调用 handleMenuClick
               >
                 {subItem.name}
-              </a>
+              </div>
             )}
-            {/* 如果有子菜单，递归渲染 */}
+            {/* 子菜单，递归渲染 */}
             {subItem.subItems && (
               <SubNavBar
                 subItems={subItem.subItems}
