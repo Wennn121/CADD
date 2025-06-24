@@ -45,11 +45,11 @@ def sync_from_remote():
             key = paramiko.RSAKey.from_private_key_file(PRIVATE_KEY_PATH)
             transport = paramiko.Transport((REMOTE_HOST, REMOTE_PORT))
             transport.connect(username=USERNAME, pkey=key)
-            print("[SYNC] ✅ 成功连接到曙光云服务器")
+            # print("[SYNC] ✅ 成功连接到曙光云服务器")
 
             sftp = paramiko.SFTPClient.from_transport(transport)
             remote_files = sftp.listdir(REMOTE_RESULT_DIR)
-            print(f"[SYNC] 📦 远程文件数量: {len(remote_files)}")
+            # print(f"[SYNC] 📦 远程文件数量: {len(remote_files)}")
 
             for file in remote_files:
                 if file not in already_downloaded:

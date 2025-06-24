@@ -13,25 +13,25 @@ function Login() {
     e.preventDefault();
 
     try {
-      // 根据 isAdmin 的值发送请求
       const response = await fetch('http://127.0.0.1:5008/login', {
         method: 'POST',
+        credentials: 'include', 
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password, isAdmin }), // 发送 isAdmin 标识
+        body: JSON.stringify({ username, password, isAdmin }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        alert('登录成功');
-        login(); // 更新登录状态
-        // 根据 isAdmin 的值跳转到不同页面
-        if (isAdmin) {
-          navigate('/admin-dashboard'); // 跳转到管理员界面
+        if (data.message === '登录成功') {
+          alert('登录成功');
+          login(); // 更新登录状态
+          localStorage.setItem('username', data.username);
+          navigate(isAdmin ? '/admin-dashboard' : '/dashboard');
         } else {
-          navigate('/dashboard'); // 跳转到普通用户界面
+          alert('登录成功，但返回数据异常');
         }
       } else {
         alert(data.error || '登录失败');

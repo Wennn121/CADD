@@ -1,10 +1,12 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, session  # 新增 session
 from flask_cors import CORS
 from pymongo import MongoClient
 from flask_bcrypt import Bcrypt  # 用于密码加密
+import secrets
 
 app = Flask(__name__)
-CORS(app)  # 允许跨域请求
+app.secret_key = 'b2d8f3e1c4a7e9b6d5f2a1c3e4b7d8f9'  # 固定 secret_key
+CORS(app, supports_credentials=True, origins=["http://localhost:3000"])
 bcrypt = Bcrypt(app)  # 初始化 bcrypt
 
 # 连接 MongoDB
@@ -17,7 +19,7 @@ try:
     print("MongoDB 连接成功！")
 except Exception as e:
     print("MongoDB 连接失败:", e)
-    raise Exception("无法连接到 MongoDB 数据库")  # 如果连接失败，抛出异常并停止应用程序
+    raise Exception("无法连接到 MongoDB 数据库")  
 
 # 用户注册路由
 @app.route('/register', methods=['POST'])
@@ -79,42 +81,60 @@ def register():
 def login():
     try:
         data = request.json
-        print("接收到的登录数据:", data)  # 打印接收到的数据
-
-        username = data.get('username')  # 用户名可以是邮箱、手机号或账户名
+        username = data.get('username')
         password = data.get('password')
-        is_admin_login = data.get('isAdmin', False)  # 新增
 
         # 检查用户是否存在
-        user = users_collection.find_one({"$or": [{"username": username}, {"email": username}, {"phone": username}]})
-        print("查询到的用户数据:", user)  # 打印查询结果
-
+        user = users_collection.find_one({"username": username})
         if not user:
-            print("用户不存在")
-            return jsonify({"error": "用户名、邮箱或手机号错误"}), 400
+            return jsonify({"error": "用户名错误"}), 400
 
         # 验证密码
-        print("数据库密码哈希:", user['password'])
-        print("登录输入密码:", password)
         if not bcrypt.check_password_hash(user['password'], password):
-            print("密码验证失败")
             return jsonify({"error": "密码错误"}), 400
 
-        # 新增：管理员身份校验
-        user_role = user.get('role', 'user')
-        if is_admin_login and user_role != 'admin':
-            print("非管理员账号尝试管理员登录")
-            return jsonify({"error": "该账号不是管理员，无法以管理员身份登录"}), 403
+        # 登录成功，写入 session
+        session['username'] = user.get('username')
+        print(f"写入会话的用户名: {session['username']}")  # 调试信息
+        return jsonify({"message": "登录成功", "username": user.get('username')}), 200
+    except Exception as e:
+        print(f"登录失败: {e}")
+        return jsonify({"error": "服务器内部错误"}), 500
 
-        # 登录成功，返回管理员标识
+# 获取当前用户信息的路由
+@app.route('/current-user', methods=['GET'])
+def get_current_user():
+    try:
+        username = request.headers.get('X-Username')
+        if not username:
+            return jsonify({"error": "未提供用户标识"}), 400
+
+        user = users_collection.find_one({"username": username})
+        print(f"请求头中的用户名: {username}")
+        print(f"查询到的用户信息: {user}")
+        if not user:
+            return jsonify({"error": "用户不存在"}), 404
+
         return jsonify({
-            "message": "登录成功",
-            "role": user_role,
-            "isAdmin": user_role == 'admin'  # 返回是否为管理员
+            "username": user.get("username"),
+            "email": user.get("email"),
+            "role": user.get("role", "user")
         }), 200
     except Exception as e:
-        print(f"后端错误: {e}")  # 打印异常信息
+        print(f"获取用户信息失败: {e}")
         return jsonify({"error": "服务器内部错误"}), 500
+
+# 获取会话用户信息的路由
+@app.route('/session-user', methods=['GET'])
+def session_user():
+    print("收到 /session-user 请求")  # 调试信息
+    username = session.get("username", "")
+    print(f"当前会话中的用户名: {username}")  # 调试信息
+    response = jsonify({"username": username})
+    response.headers["Content-Type"] = "application/json"
+    print('返回给前端的内容:', {'username': username})
+    print("请求携带的 cookies:", request.cookies)
+    return response
 
 if __name__ == '__main__':
     host = '127.0.0.1'

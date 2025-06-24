@@ -1,16 +1,17 @@
-import React, { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom'; // 导入 useNavigate 用于页面跳转
-import { useAuth } from '../contrl/AuthContext'; // 引入 AuthContext
-import SubNavBar from './SubNavBar'; // 子菜单组件
-import logo from './图片1.svg'; // 根据实际路径导入 logo 图片
+import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contrl/AuthContext';
+import SubNavBar from './SubNavBar';
+import logo from './图片1.svg';
+import userAvatar from './user-avatar.svg'; // 用户头像图片路径
 
 function Navbar() {
   const [activeMenu, setActiveMenu] = useState(null);
+  const [isUserMenuVisible, setIsUserMenuVisible] = useState(false); // 控制用户菜单显示
   const navigate = useNavigate();
-  const { isLoggedIn, logout } = useAuth(); // 获取登录状态和登出方法
+  const { isLoggedIn, logout, user, setUser } = useAuth(); // 获取登录状态、登出方法和用户信息
   const timerRef = useRef();
 
-  // -------------------- 导航菜单项 --------------------
   const navItems = [
     { 
       name: '基础信息分析', 
@@ -159,42 +160,43 @@ function Navbar() {
       { name: '核酸-蛋白质', link: 'https://www.expasy.org/resources/translate' }, 
       { name: '蛋白质-核酸', link: 'https://www.bioinformatics.org/sms2/rev_trans.html' },
       { name: '人源化', link: 'http://www.abysis.org/abysis/sequence_input/key_annotation/key_annotation.cgi' },
-      { name: '理化性质', link: 'https://web.expasy.org/cgi-bin/protparam/protparam' }, // 修复单引号
+      { name: '理化性质', link: 'https://web.expasy.org/cgi-bin/protparam/protparam' },
       { name: '可变区分析', link: 'https://wwwv.imgt.org/IMGT_vguest/input' },
       { name: 'CDR区划分', link: 'https://www.imgt.org/3Dstructure-DB/cgi/DomainGapAlign.cgi' },
       { name: '结合表位分析', link: 'http://tools.iedb.org/main/bcell/' },
       { name: 'AlphaFold3', link: 'https://alphafoldserver.com/' },
       { name: 'Swiss-Model', link: 'https://swissmodel.expasy.org/interactive' },
-      { name: 'IMGT标注', link: 'https://www.imgt.org/3Dstructure-DB/cgi/Collier-de-Perles.cgi' }] },
+      { name: 'IMGT标注', link: 'https://www.imgt.org/3Dstructure-DB/cgi/Collier-de-Perles.cgi' },
+      {name: 'R', link: '/RScriptExecutor' }] },
 
   ];
 
   // -------------------- 菜单点击处理 --------------------
   const handleMenuClick = (item, event) => {
-    console.log('点击的菜单项:', item);  // 查看菜单项内容
-
-    event.preventDefault(); // 阻止默认行为
+    console.log('点击的菜单项:', item);
+    event.preventDefault();
 
     // 如果用户没有登录，跳转到登录页面
     if (!isLoggedIn) {
-      navigate('/login'); // 跳转到登录页面
-      return; // 结束函数，防止继续执行跳转操作
+      navigate('/login');
+      return;
+    }
+
+    // 如果该菜单项有下拉子菜单，点击时显示/隐藏下拉菜单
+    if (item.subItems && item.subItems.length > 0) {
+      setActiveMenu(activeMenu === item.name ? null : item.name);
+      return;
     }
 
     // 如果该菜单项有链接，就跳转到该链接
     if (item.link) {
-      console.log('跳转到:', item.link);  // 打印跳转链接
-
-      // 如果是外部链接
       if (item.link.startsWith('http')) {
-        console.log('外部链接，跳转到:', item.link); // 调试信息
-        window.location.href = item.link; // 外部链接直接跳转
+        window.location.href = item.link;
       } else {
-        console.log('内部链接，跳转到:', item.link); // 调试信息
-        navigate(item.link); // 内部链接使用 react-router 跳转
+        navigate(item.link);
       }
     } else {
-      console.log('没有有效的链接');  // 如果没有链接，输出调试信息
+      console.log('没有有效的链接');
     }
   };
 
@@ -210,34 +212,61 @@ function Navbar() {
     }, 200); // 200ms延迟
   };
 
+  const toggleUserMenu = () => {
+    setIsUserMenuVisible((prev) => !prev);
+  };
+
+  // 从后端获取当前登录用户信息
+useEffect(() => {
+  console.log('useEffect 被触发'); // 调试信息
+  fetch('http://127.0.0.1:5008/session-user', {
+    method: 'GET',
+    credentials: 'include' // 确保携带 Cookie
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('网络请求失败');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('用户数据:', data); // 调试信息
+    })
+    .catch(error => {
+      console.error('获取用户信息失败:', error);
+    });
+}, [setUser]);
+
+
   // -------------------- 渲染导航栏 --------------------
   return (
     <>
-      <div style={{ 
-        position: 'fixed', 
-        top: 0, 
-        width: '100%', 
-        zIndex: 1000, 
-        backgroundColor: 'rgba(27, 63, 161, 0.78)', 
-        height: '60px', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'space-between', // 修改为两端对齐
-        boxSizing: 'border-box', 
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        width: '100%',
+        zIndex: 1000,
+        backgroundColor: 'rgba(27, 63, 161, 0.78)',
+        height: '60px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        boxSizing: 'border-box',
         padding: '0 20px',
-        borderRadius: '0 0 10px 10px', // 上方直角，下方圆角
+        borderRadius: '0 0 10px 10px',
+        boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
       }}>
         {/* Logo 和标题 */}
         <div style={{ display: 'flex', alignItems: 'center', marginRight: '20px' }}>
           <img
             src={logo}
             alt="logo"
-            style={{ width: '40px', marginRight: '10px', cursor: 'pointer' }} // 添加鼠标指针样式
-            onClick={() => navigate('/')} // 修改为跳转首页
+            style={{ width: '40px', marginRight: '10px', cursor: 'pointer' }}
+            onClick={() => navigate('/')}
           />
           <h1
-            style={{ color: 'white', fontSize: '20px', margin: 0, cursor: 'pointer' }} // 添加鼠标指针样式
-            onClick={() => navigate('/')} // 修改为跳转首页
+            style={{ color: 'white', fontSize: '20px', margin: 0, cursor: 'pointer', fontWeight: 'bold' }}
+            onClick={() => navigate('/')}
           >
             CADD抗体分析平台
           </h1>
@@ -257,7 +286,7 @@ function Navbar() {
               }}
               onMouseEnter={() => handleMenuEnter(item.name)}
               onMouseLeave={handleMenuLeave}
-              onClick={(event) => handleMenuClick(item, event)} // 添加事件阻止
+              onClick={(event) => handleMenuClick(item, event)} // 保持不变
             >
               {item.name}
               <SubNavBar
@@ -265,33 +294,112 @@ function Navbar() {
                 isVisible={activeMenu === item.name}
                 onMouseEnter={() => handleMenuEnter(item.name)}
                 onMouseLeave={handleMenuLeave}
-                onClick={(subItem, event) => handleMenuClick(subItem, event)} // 确保传递子项
+                onClick={(subItem, event) => handleMenuClick(subItem, event)}
               />
             </div>
           ))}
         </div>
 
         {/* 用户信息或登录/注册按钮 */}
-        <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: '10px', alignItems: 'center', position: 'relative' }}>
           {isLoggedIn ? (
             <>
-              <div style={{ color: 'white', fontWeight: 'bold', cursor: 'pointer' }}>
-                用户名: x9y111
-              </div>
-              <button
+              <img
+                src={userAvatar}
+                alt="用户头像"
                 style={{
-                  backgroundColor: 'white',
-                  color: 'rgba(27, 63, 161, 0.78)',
-                  border: 'none',
-                  borderRadius: '5px',
-                  padding: '5px 10px',
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
                   cursor: 'pointer',
-                  fontWeight: 'bold',
+                  border: '2px solid white',
                 }}
-                onClick={logout} // 调用登出方法
-              >
-                退出登录
-              </button>
+                onClick={toggleUserMenu}
+              />
+              {isUserMenuVisible && (
+                <div style={{
+                  position: 'absolute',
+                  top: '60px',
+                  right: 0,
+                  backgroundColor: 'white',
+                  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                  borderRadius: '8px',
+                  overflow: 'hidden',
+                  zIndex: 1200,
+                  width: '200px',
+                }}>
+                  <ul style={{
+                    listStyle: 'none',
+                    margin: 0,
+                    padding: '10px',
+                    textAlign: 'left',
+                  }}>
+                    <li style={{
+                      padding: '10px',
+                      cursor: 'pointer',
+                      borderBottom: '1px solid #f0f0f0',
+                      fontSize: '14px',
+                      color: '#333',
+                      transition: 'background-color 0.3s',
+                    }}
+                      onClick={() => navigate('/resources')}
+                      onMouseEnter={(e) => e.target.style.backgroundColor = '#f9f9f9'}
+                      onMouseLeave={(e) => e.target.style.backgroundColor = 'white'}
+                    >
+                      资源中心
+                    </li>
+                    <li style={{
+                      padding: '10px',
+                      cursor: 'pointer',
+                      borderBottom: '1px solid #f0f0f0',
+                      fontSize: '14px',
+                      color: '#333',
+                      transition: 'background-color 0.3s',
+                    }}
+                      onClick={() => navigate('/profile')}
+                      onMouseEnter={(e) => e.target.style.backgroundColor = '#f9f9f9'}
+                      onMouseLeave={(e) => e.target.style.backgroundColor = 'white'}
+                    >
+                      个人中心
+                    </li>
+                    <li style={{
+                      padding: '10px',
+                      cursor: 'pointer',
+                      borderBottom: '1px solid #f0f0f0',
+                      fontSize: '14px',
+                      color: '#333',
+                      transition: 'background-color 0.3s',
+                    }}
+                      onClick={() => navigate('/settings')}
+                      onMouseEnter={(e) => e.target.style.backgroundColor = '#f9f9f9'}
+                      onMouseLeave={(e) => e.target.style.backgroundColor = 'white'}
+                    >
+                      偏好设置
+                    </li>
+                    <li style={{
+                      padding: '10px',
+                      cursor: 'pointer',
+                      fontSize: '14px',
+                      color: '#333',
+                      transition: 'background-color 0.3s',
+                    }}
+                      onClick={logout}
+                      onMouseEnter={(e) => e.target.style.backgroundColor = '#f9f9f9'}
+                      onMouseLeave={(e) => e.target.style.backgroundColor = 'white'}
+                    >
+                      退出登录
+                    </li>
+                  </ul>
+                </div>
+              )}
+              <div style={{
+                color: 'white',
+                fontWeight: 'bold',
+                marginLeft: '10px',
+                fontSize: '16px',
+              }}>
+                {user?.username || '未知用户'} {/* 动态显示当前登录的用户名 */}
+              </div>
             </>
           ) : (
             <>
@@ -332,3 +440,5 @@ function Navbar() {
 }
 
 export default Navbar;
+
+

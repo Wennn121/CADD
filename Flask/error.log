@@ -10630,3 +10630,128 @@ PermissionError: [Errno 13] Permission denied: 'D:\\Antibody\\MultiSequenceAlign
 2025-06-10 17:46:24,993 - INFO - 127.0.0.1 - - [10/Jun/2025 17:46:24] "GET /check-energy-score-status/receptor-ligand_model5.pdb HTTP/1.1" 200 -
 2025-06-10 17:46:42,660 - ERROR - [SYNC ERROR] ÎÄ¼þÍ¬²½Ê§°Ü: [Errno 11001] getaddrinfo failed
 2025-06-10 17:46:51,546 - ERROR - [SYNC ERROR] ´íÎó: [Errno 11001] getaddrinfo failed
+2025-06-20 10:01:28,004 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-20 10:01:28,005 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-20 10:01:28,007 - INFO -  * Restarting with stat
+2025-06-20 10:01:28,360 - WARNING -  * Debugger is active!
+2025-06-20 10:01:28,365 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:02:11,513 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\Run.py', reloading
+2025-06-20 10:02:11,563 - INFO -  * Restarting with stat
+2025-06-20 10:02:11,980 - WARNING -  * Debugger is active!
+2025-06-20 10:02:11,985 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:02:33,730 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-20 10:02:33,730 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-20 10:02:33,731 - INFO -  * Restarting with stat
+2025-06-20 10:02:34,096 - WARNING -  * Debugger is active!
+2025-06-20 10:02:34,102 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:04:06,438 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\Run.py', reloading
+2025-06-20 10:04:06,486 - INFO -  * Restarting with stat
+2025-06-20 10:04:06,918 - WARNING -  * Debugger is active!
+2025-06-20 10:04:06,925 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:04:07,939 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\Run.py', reloading
+2025-06-20 10:04:07,977 - INFO -  * Restarting with stat
+2025-06-20 10:04:08,421 - WARNING -  * Debugger is active!
+2025-06-20 10:04:08,427 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:12:12,054 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-20 10:12:12,055 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-20 10:12:12,056 - INFO -  * Restarting with stat
+2025-06-20 10:12:12,428 - WARNING -  * Debugger is active!
+2025-06-20 10:12:12,435 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:13:09,628 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\Run.py', reloading
+2025-06-20 10:13:09,672 - INFO -  * Restarting with stat
+2025-06-20 10:13:10,096 - WARNING -  * Debugger is active!
+2025-06-20 10:13:10,103 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:13:21,121 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-20 10:13:21,121 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-20 10:13:21,122 - INFO -  * Restarting with stat
+2025-06-20 10:13:21,476 - WARNING -  * Debugger is active!
+2025-06-20 10:13:21,482 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:14:09,172 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-20 10:14:09,174 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-20 10:14:09,175 - INFO -  * Restarting with stat
+2025-06-20 10:14:09,571 - WARNING -  * Debugger is active!
+2025-06-20 10:14:09,575 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:14:10,058 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5005
+2025-06-20 10:14:10,058 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-20 10:14:10,059 - INFO -  * Restarting with stat
+2025-06-20 10:14:10,447 - WARNING -  * Debugger is active!
+2025-06-20 10:14:10,453 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:14:39,920 - INFO - 127.0.0.1 - - [20/Jun/2025 10:14:39] "[33mPOST /api/geo2r HTTP/1.1[0m" 404 -
+2025-06-20 10:14:43,655 - INFO - 127.0.0.1 - - [20/Jun/2025 10:14:43] "[33mPOST /api/geo2r HTTP/1.1[0m" 404 -
+2025-06-20 10:20:19,690 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\Run.py', reloading
+2025-06-20 10:20:19,780 - INFO -  * Restarting with stat
+2025-06-20 10:20:19,820 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\Run.py', reloading
+2025-06-20 10:20:19,905 - INFO -  * Restarting with stat
+2025-06-20 10:20:20,275 - WARNING -  * Debugger is active!
+2025-06-20 10:20:20,283 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:20:20,346 - WARNING -  * Debugger is active!
+2025-06-20 10:20:20,353 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:27:14,728 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\Run.py', reloading
+2025-06-20 10:27:14,778 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\Run.py', reloading
+2025-06-20 10:27:14,800 - INFO -  * Restarting with stat
+2025-06-20 10:27:14,845 - INFO -  * Restarting with stat
+2025-06-20 10:27:15,272 - WARNING -  * Debugger is active!
+2025-06-20 10:27:15,279 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:27:15,287 - WARNING -  * Debugger is active!
+2025-06-20 10:27:15,295 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:31:03,052 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\Run.py', reloading
+2025-06-20 10:31:03,122 - INFO -  * Restarting with stat
+2025-06-20 10:31:03,136 - INFO -  * Restarting with stat
+2025-06-20 10:31:03,550 - WARNING -  * Debugger is active!
+2025-06-20 10:31:03,556 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:31:03,604 - WARNING -  * Debugger is active!
+2025-06-20 10:31:03,611 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:31:26,635 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\Energy-Score.py', reloading
+2025-06-20 10:31:26,684 - INFO -  * Restarting with stat
+2025-06-20 10:31:26,691 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\Energy-Score.py', reloading
+2025-06-20 10:31:26,747 - INFO -  * Restarting with stat
+2025-06-20 10:31:27,093 - WARNING -  * Debugger is active!
+2025-06-20 10:31:27,100 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:31:27,180 - WARNING -  * Debugger is active!
+2025-06-20 10:31:27,186 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:31:31,122 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\Energy-Score.py', reloading
+2025-06-20 10:31:31,171 - INFO -  * Restarting with stat
+2025-06-20 10:31:31,209 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\Energy-Score.py', reloading
+2025-06-20 10:31:31,270 - INFO -  * Restarting with stat
+2025-06-20 10:31:31,610 - WARNING -  * Debugger is active!
+2025-06-20 10:31:31,615 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:31:31,740 - WARNING -  * Debugger is active!
+2025-06-20 10:31:31,749 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:31:48,812 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\Energy-Score.py', reloading
+2025-06-20 10:31:48,880 - INFO -  * Restarting with stat
+2025-06-20 10:31:49,328 - WARNING -  * Debugger is active!
+2025-06-20 10:31:49,333 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:31:49,677 - INFO -  * Detected change in 'D:\\×ÀÃæ\\React\\my-app\\Flask\\Energy-Score.py', reloading
+2025-06-20 10:31:49,723 - INFO -  * Restarting with stat
+2025-06-20 10:31:50,088 - WARNING -  * Debugger is active!
+2025-06-20 10:31:50,094 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:32:09,950 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-20 10:32:09,951 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-20 10:32:09,952 - INFO -  * Restarting with stat
+2025-06-20 10:32:10,068 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5005
+2025-06-20 10:32:10,070 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-20 10:32:10,071 - INFO -  * Restarting with stat
+2025-06-20 10:32:10,326 - WARNING -  * Debugger is active!
+2025-06-20 10:32:10,334 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:32:10,473 - WARNING -  * Debugger is active!
+2025-06-20 10:32:10,479 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:32:49,528 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-20 10:32:49,528 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-20 10:32:49,529 - INFO -  * Restarting with stat
+2025-06-20 10:32:49,611 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5005
+2025-06-20 10:32:49,611 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-20 10:32:49,612 - INFO -  * Restarting with stat
+2025-06-20 10:32:49,941 - WARNING -  * Debugger is active!
+2025-06-20 10:32:49,947 - INFO -  * Debugger PIN: 144-687-355
+2025-06-20 10:32:50,049 - WARNING -  * Debugger is active!
+2025-06-20 10:32:50,055 - INFO -  * Debugger PIN: 144-687-355

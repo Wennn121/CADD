@@ -8,23 +8,53 @@ export const AuthProvider = ({ children }) => {
     return localStorage.getItem('isLoggedIn') === 'true';
   });
 
-  const login = () => {
+  const [user, setUser] = useState(() => {
+    // 例子：从 localStorage 读取 user 时
+    const userStr = localStorage.getItem('user');
+    let user = null;
+    if (userStr) {
+      try {
+        user = JSON.parse(userStr);
+      } catch (e) {
+        user = null;
+      }
+    }
+    return user;
+  });
+
+  const login = (userData) => {
     setIsLoggedIn(true);
-    localStorage.setItem('isLoggedIn', 'true'); // 持久化登录状态
+    setUser(userData); // 设置用户信息
+    try {
+      localStorage.setItem('isLoggedIn', 'true'); // 持久化登录状态
+      localStorage.setItem('user', JSON.stringify(userData)); // 持久化用户信息
+    } catch (error) {
+      console.error('保存用户信息到 localStorage 失败:', error);
+    }
   };
 
   const logout = () => {
     setIsLoggedIn(false);
-    localStorage.removeItem('isLoggedIn'); // 清除登录状态
+    setUser(null); // 清除用户信息
+    try {
+      localStorage.removeItem('isLoggedIn'); // 清除登录状态
+      localStorage.removeItem('user'); // 清除用户信息
+    } catch (error) {
+      console.error('清除 localStorage 信息失败:', error);
+    }
   };
 
   useEffect(() => {
-    // 同步状态到 localStorage（可选，确保状态一致性）
-    localStorage.setItem('isLoggedIn', isLoggedIn ? 'true' : 'false');
+    // 同步登录状态到 localStorage（可选，确保状态一致性）
+    try {
+      localStorage.setItem('isLoggedIn', isLoggedIn ? 'true' : 'false');
+    } catch (error) {
+      console.error('同步登录状态到 localStorage 失败:', error);
+    }
   }, [isLoggedIn]);
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
+    <AuthContext.Provider value={{ isLoggedIn, user, setUser, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
