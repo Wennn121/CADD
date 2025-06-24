@@ -1,0 +1,97 @@
+.navbarContainer {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(27, 63, 161, 0.78);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 20px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.logoTitle {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+.logo {
+  width: 40px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.title {
+  color: white;
+  font-size: 20px;
+  margin: 0;
+  cursor: pointer;
+  font-weight: bold;
+}
+.menuList {
+  display: flex;
+  gap: 20px;
+  position: relative;
+}
+.menuItem {
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  transition: background-color 0.3s, font-weight 0.3s, border-radius 0.3s;
+  position: relative;
+}
+.userSection {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  position: relative;
+}
+.userAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid white;
+}
+.userMenu {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1200;
+  width: 200px;
+}
+.userMenuList {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  text-align: left;
+}
+.userMenuItem {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+  color: #333;
+  transition: background-color 0.3s;
+}
+.username {
+  color: white;
+  font-weight: bold;
+  margin-left: 10px;
+  font-size: 16px;
+}
+.loginBtn, .registerBtn {
+  background-color: white;
+  color: rgba(27, 63, 161, 0.78);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
