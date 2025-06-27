@@ -1,0 +1,41 @@
+.rc-tree {
+  background: #f8fbff;
+  padding: 8px 0 8px 0;
+  font-size: 15px;
+  color: #1976d2;
+  border-radius: 10px;
+  min-height: 540px;
+}
+
+.rc-tree .rc-tree-treenode {
+  margin-left: 8px;
+}
+
+.rc-tree .rc-tree-switcher {
+  color: #1976d2;
+  font-size: 16px;
+}
+
+.rc-tree .rc-tree-title {
+  color: #1976d2;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.rc-tree .rc-tree-treenode-selected .rc-tree-title,
+.rc-tree .rc-tree-treenode:hover .rc-tree-title {
+  background: #e3f3ff;
+  color: #1256a6;
+}
+
+.rc-tree .rc-tree-leaf .rc-tree-title {
+  color: #333;
+  font-weight: 400;
+}
+
+.rc-tree .rc-tree-treenode-disabled .rc-tree-title {
+  color: #bbb;
+  background: none;
+}

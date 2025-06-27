@@ -4,7 +4,7 @@ function EnergyScore() {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState('');
-  const [downloadLinks, setDownloadLinks] = useState([]); // 用于存储下载链接
+  const [downloadLinks, setDownloadLinks] = useState([]); // 存储下载链接
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];

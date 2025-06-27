@@ -12,7 +12,9 @@ import Register from './contrl/Register'; // 引入 Register 组件
 import Dashboard from './contrl/Dashboard'; // 引入 Dashboard 组件
 import AdminDashboard from './contrl/AdminDashboard';
 import RScriptExecutor from './module/RScriptExecutor.js';  
-
+import UserCenter from './module/UserCenter/UserCenter';
+import SearchDB from './module/SearchDB/SearchDB'; // 引入 SearchDB 组件
+import PDBViewer from './module/PDBViewer/PDBViewer'; // 引入 PDBViewer 组件
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -52,6 +54,9 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} /> {/* 添加 Dashboard 路由 */}
             <Route path="/admin-dashboard" element={<AdminDashboard />} />
             <Route path="/RScriptExecutor" element={<RScriptExecutor />} />
+            <Route path="/user-center" element={<UserCenter />} /> {/* 添加 UserCenter 路由 */}
+            <Route path="/Search" element={<SearchDB />} />
+            <Route path="/PDB" element={<PDBViewer />} />
           </Routes>
         
       </ErrorBoundary>

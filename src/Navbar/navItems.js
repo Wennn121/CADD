@@ -137,7 +137,7 @@
   
    { name: '抗体数据库', 
     subItems: [{ name: 'OAS数据库',  },
-      { name: 'uniprot数据库',  }] },
+      { name: 'SAbDab数据库',link:'/Search'  }] },
    { name: '网址链接', 
     subItems: [
       {name: '多序列比对',link: '/multi-sequence-alignment'}, 
@@ -153,7 +153,8 @@
       { name: 'AlphaFold3', link: 'https://alphafoldserver.com/' },
       { name: 'Swiss-Model', link: 'https://swissmodel.expasy.org/interactive' },
       { name: 'IMGT标注', link: 'https://www.imgt.org/3Dstructure-DB/cgi/Collier-de-Perles.cgi' },
-      {name: 'R', link: '/RScriptExecutor' }] },
+      {name: 'R', link: '/RScriptExecutor' },
+      {name: 'PDB可视化', link: '/PDB' },] },
 
   ];
   export default navItems;

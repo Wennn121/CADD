@@ -1,22 +1,21 @@
 import React from 'react';
-import { scroller } from 'react-scroll'; // 引入 scroller
+import { scroller } from 'react-scroll';
 
 function Home() {
   return (
     <div>
-      {/* 首页部分 */}
       <div
         style={{
           position: 'relative',
           width: '100%',
           height: '100vh',
-          background: 'linear-gradient(45deg, #85c6ff, #ffcccb)', // 渐变背景色
+          background: 'linear-gradient(45deg, #85c6ff, #ffcccb)', 
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
           overflow: 'hidden',
-          transition: 'transform 1s ease-out', // 页面切换过渡效果
+          transition: 'transform 1s ease-out', 
         }}
       >
         <h2
@@ -26,7 +25,7 @@ function Home() {
             fontWeight: 'bold',
             marginBottom: '20px',
             animation: 'fadeIn 2s ease-out',
-            textShadow: '2px 2px 10px rgba(0, 0, 0, 0.2)', // 文字阴影
+            textShadow: '2px 2px 10px rgba(0, 0, 0, 0.2)', 
           }}
         >
           欢迎来到抗体设计平台
@@ -39,7 +38,7 @@ function Home() {
             marginBottom: '40px',
             animation: 'fadeIn 2s 0.5s ease-out',
             textAlign: 'center',
-            textShadow: '1px 1px 8px rgba(0, 0, 0, 0.1)', // 文字阴影
+            textShadow: '1px 1px 8px rgba(0, 0, 0, 0.1)', 
           }}
         >
           提交您的抗体序列，开始全流程设计。
@@ -62,11 +61,10 @@ function Home() {
           }}
           onClick={() => {
             scroller.scrollTo('target-section', {
-              duration: 1000, // 滑动时间（毫秒）
-              delay: 1000
-              , // 延迟时间
-              smooth: 'easeInOutQuart', // 平滑效果
-              offset: -80, // 偏移量，避免遮挡标题
+              duration: 1000, 
+              delay: 1000, 
+              smooth: 'easeInOutQuart', 
+              offset: -80, 
             });
           }}
         >

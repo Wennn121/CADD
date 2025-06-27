@@ -9,7 +9,7 @@ function RScriptExecutor() {
   const [parameters, setParameters] = useState({ param1: '', param2: '' });
   const [rCode, setRCode] = useState('');
 
-  // 每次模板或参数变化时，自动生成 R 代码
+
   useEffect(() => {
     const templateFunc = scriptTemplates[selectedTemplate];
     if (typeof templateFunc === 'function') {
@@ -63,10 +63,10 @@ function RScriptExecutor() {
       return;
     }
 
-    // 直接用 rCode 作为最终代码
+  
     let finalCode = rCode;
 
-    // 替换 output.png 为唯一文件名
+
     const filename = `output_${Date.now()}.png`;
     finalCode = finalCode.replace(/output\.png/g, filename);
 

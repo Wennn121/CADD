@@ -7,7 +7,7 @@ const UserMenu = ({ onNavigate, onLogout }) => (
     <ul className={styles.userMenuList}>
       {[
         { label: '资源中心', path: '/resources' },
-        { label: '个人中心', path: '/profile' },
+        { label: '个人中心', path: '/user-center' },
         { label: '偏好设置', path: '/settings' }
       ].map(item => (
         <li

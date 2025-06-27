@@ -1,17 +1,19 @@
 html, body {
   height: 100%;
   margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
 }
 
 .App {
-  text-align: center; /* 文本居中对齐 */
-  background-color: #e1dada85; /* 设置背景颜色为深红色 */
-  min-height: 100vh; /* 确保背景覆盖整个视口高度 */
+  text-align: center; 
+  background-color: #e1dada85; 
+  min-height: 100vh; 
 }
 
 .App-logo {
-  width: 80px;           /* 新增：设置宽度 */
-  height: 80px;          /* 新增：设置高度 */
+  width: 80px;           
+  height: 80px;          
   pointer-events: none;
 }
 
@@ -89,5 +91,78 @@ html, body {
   100% {
     transform: translateX(0);
   }
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+}
+
+.profile {
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile .avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.card ul li {
+  margin-bottom: 10px;
+}
+
+.btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.logout {
+  display: block;
+  width: 100%;
+  background-color: #dc3545;
+  margin-top: 20px;
+}
+
+.logout:hover {
+  background-color: #c82333;
 }
 
