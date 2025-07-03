@@ -95,3 +95,9 @@
   cursor: pointer;
   font-weight: bold;
 }
+.subNavBar {
+  position: absolute;
+  left: 0; 
+  top: 100%;
+  margin-top: 0; 
+}

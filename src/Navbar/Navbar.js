@@ -7,7 +7,6 @@ import logo from './图片1.svg';
 import userAvatar from './user-avatar.svg';
 import styles from './Navbar.module.css';
 import navItems from './navItems';
-import { useNavbarHandlers } from './NavbarHandlers';
 import useUserInfo from '../hooks/useUserInfo';
 
 function Navbar() {
@@ -17,10 +16,22 @@ function Navbar() {
   const { isLoggedIn, logout, user, setUser } = useAuth();
 
   useUserInfo(setUser);
+  const handleMenuClick = (item, e) => {
+    e.stopPropagation();
+    if (activeMenu === item.name) {
+      setActiveMenu(null);
+    } else {
+      setActiveMenu(item.name);
+    }
+  };
 
-  const { handleMenuClick, handleMenuEnter, handleMenuLeave } = useNavbarHandlers({
-    isLoggedIn, navigate, setActiveMenu, activeMenu
-  });
+  React.useEffect(() => {
+    const handleClickOutside = () => setActiveMenu(null);
+    if (activeMenu !== null) {
+      document.addEventListener('click', handleClickOutside);
+    }
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [activeMenu]);
 
   return (
     <nav className={styles.navbarContainer}>
@@ -33,16 +44,12 @@ function Navbar() {
           <li
             key={item.name}
             className={styles.menuItem}
-            onMouseEnter={() => handleMenuEnter(item.name)}
-            onMouseLeave={handleMenuLeave}
             onClick={e => handleMenuClick(item, e)}
           >
             {item.name}
             <SubNavBar
               subItems={item.subItems}
               isVisible={activeMenu === item.name}
-              onMouseEnter={() => handleMenuEnter(item.name)}
-              onMouseLeave={handleMenuLeave}
               onClick={(subItem, event) => handleMenuClick(subItem, event)}
             />
           </li>

@@ -57,7 +57,7 @@
   background-color: #0056b3;
 }
 
-/* 背景介绍页样式 */
+
 .backgroundPage {
   background-color: #f0f0f0;
   text-align: center;
@@ -86,7 +86,6 @@
   margin-top: 20px;
 }
 
-/* 滚动动画 */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -110,5 +109,5 @@
 }
 
 .slide-effect {
-  animation: slideIn 1s ease-out; /* 滑动动画 */
+  animation: slideIn 1s ease-out; 
 }
