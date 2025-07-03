@@ -1,50 +1,44 @@
-from flask import Flask, request, jsonify, session  # 新增 session
+from flask import Flask, request, jsonify, session
 from flask_cors import CORS
 from pymongo import MongoClient
-from flask_bcrypt import Bcrypt  # 用于密码加密
+from flask_bcrypt import Bcrypt
 import secrets
 
 app = Flask(__name__)
-app.secret_key = 'b2d8f3e1c4a7e9b6d5f2a1c3e4b7d8f9'  # 固定 secret_key
+app.secret_key = 'b2d8f3e1c4a7e9b6d5f2a1c3e4b7d8f9'
 CORS(app, supports_credentials=True, origins=["http://localhost:3000"])
-bcrypt = Bcrypt(app)  # 初始化 bcrypt
+bcrypt = Bcrypt(app)
 
-# 连接 MongoDB
 try:
-    client = MongoClient("mongodb://localhost:27017/")  # MongoDB 连接字符串
-    db = client["CADD"]  # 数据库名称
-    users_collection = db["users"]  # 集合名称
-    # 检查数据库连接是否成功
-    client.admin.command('ping')  # 通过 ping 命令测试是否连接成功
+    client = MongoClient("mongodb://localhost:27017/")
+    db = client["CADD"]
+    users_collection = db["users"]
+    client.admin.command('ping')
     print("MongoDB 连接成功！")
 except Exception as e:
     print("MongoDB 连接失败:", e)
-    raise Exception("无法连接到 MongoDB 数据库")  
+    raise Exception("无法连接到 MongoDB 数据库")
 
-# 用户注册路由
 @app.route('/register', methods=['POST'])
 def register():
     data = request.json
-    print("接收到的数据:", data)  # 打印接收到的数据
+    print("接收到的数据:", data)
 
-    username = data.get('username')  # 用户名可以是邮箱、手机号或账户名
+    username = data.get('username')
     password = data.get('password')
-    role = 'user'  # 强制所有注册用户为普通用户
+    role = 'user'
 
     if not username or not password:
         return jsonify({"error": "账户名/手机号/邮箱和密码均为必填"}), 400
 
-    # 检查输入内容类型
-    if "@" in username:  # 判断是否是邮箱
+    if "@" in username:
         field = "email"
-    elif username.isdigit():  # 判断是否是手机号
+    elif username.isdigit():
         field = "phone"
-    else:  # 默认是账户名
+    else:
         field = "username"
 
-    # 检查是否已存在
     if users_collection.find_one({field: username}):
-        # 用中文提示
         if field == "username":
             return jsonify({"error": "用户名已存在"}), 400
         elif field == "email":
@@ -52,10 +46,8 @@ def register():
         elif field == "phone":
             return jsonify({"error": "手机号已存在"}), 400
 
-    # 对密码进行加密
     hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
 
-    # 插入用户数据
     user = {
         "username": username if field == "username" else None,
         "email": username if field == "email" else None,
@@ -63,20 +55,18 @@ def register():
         "password": hashed_password,
         "role": role
     }
-    # 移除为 None 的字段
     user = {k: v for k, v in user.items() if v is not None}
-    print(f"准备插入的数据: {user}")  # 在插入前打印数据
+    print(f"准备插入的数据: {user}")
 
     try:
         result = users_collection.insert_one(user)
-        print(f"插入结果: {result.inserted_id}")  # 打印插入结果
+        print(f"插入结果: {result.inserted_id}")
     except Exception as e:
         print(f"插入失败: {e}")
         return jsonify({"error": "数据库插入失败"}), 500
 
     return jsonify({"message": "注册成功"}), 201
 
-# 用户登录路由
 @app.route('/login', methods=['POST'])
 def login():
     try:
@@ -84,24 +74,20 @@ def login():
         username = data.get('username')
         password = data.get('password')
 
-        # 检查用户是否存在
         user = users_collection.find_one({"username": username})
         if not user:
             return jsonify({"error": "用户名错误"}), 400
 
-        # 验证密码
         if not bcrypt.check_password_hash(user['password'], password):
             return jsonify({"error": "密码错误"}), 400
 
-        # 登录成功，写入 session
         session['username'] = user.get('username')
-        print(f"写入会话的用户名: {session['username']}")  # 调试信息
+        print(f"写入会话的用户名: {session['username']}")
         return jsonify({"message": "登录成功", "username": user.get('username')}), 200
     except Exception as e:
         print(f"登录失败: {e}")
         return jsonify({"error": "服务器内部错误"}), 500
 
-# 获取当前用户信息的路由
 @app.route('/current-user', methods=['GET'])
 def get_current_user():
     try:
@@ -124,12 +110,11 @@ def get_current_user():
         print(f"获取用户信息失败: {e}")
         return jsonify({"error": "服务器内部错误"}), 500
 
-# 获取会话用户信息的路由
 @app.route('/session-user', methods=['GET'])
 def session_user():
-    print("收到 /session-user 请求")  # 调试信息
+    print("收到 /session-user 请求")
     username = session.get("username", "")
-    print(f"当前会话中的用户名: {username}")  # 调试信息
+    print(f"当前会话中的用户名: {username}")
     response = jsonify({"username": username})
     response.headers["Content-Type"] = "application/json"
     print('返回给前端的内容:', {'username': username})

@@ -9,7 +9,6 @@ export const AuthProvider = ({ children }) => {
   });
 
   const [user, setUser] = useState(() => {
-    // 例子：从 localStorage 读取 user 时
     const userStr = localStorage.getItem('user');
     let user = null;
     if (userStr) {
@@ -45,7 +44,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // 同步登录状态到 localStorage（可选，确保状态一致性）
+  
     try {
       localStorage.setItem('isLoggedIn', isLoggedIn ? 'true' : 'false');
     } catch (error) {
